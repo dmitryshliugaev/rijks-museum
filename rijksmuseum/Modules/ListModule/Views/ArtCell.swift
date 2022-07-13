@@ -10,66 +10,64 @@ import Kingfisher
 
 class ArtCell: UICollectionViewCell {
     var imageView : UIImageView = {
-          let img = UIImageView()
-          img.backgroundColor = .gray
-          img.contentMode = .scaleAspectFill
-          img.clipsToBounds = true
-          img.translatesAutoresizingMaskIntoConstraints = false
-          img.setContentHuggingPriority(.defaultLow, for: .vertical)
-          return img
-        }()
+        let img = UIImageView()
+        img.backgroundColor = .gray
+        img.contentMode = .scaleAspectFill
+        img.clipsToBounds = true
+        img.translatesAutoresizingMaskIntoConstraints = false
+        img.setContentHuggingPriority(.defaultLow, for: .vertical)
+        return img
+    }()
     
     var descriptionLabel : UILabel = {
-            let lab = UILabel()
-            lab.textColor = .white
-            lab.numberOfLines = 0
-            lab.lineBreakMode = .byWordWrapping
-            lab.translatesAutoresizingMaskIntoConstraints = false
-            lab.font = UIFont(name: "Helvetica", size: 16)
-            lab.setContentHuggingPriority(.defaultHigh, for: .vertical)
-           return lab
-        }()
+        let label = UILabel()
+        label.textColor = .black
+        label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = label.font.withSize(16)
+        label.setContentHuggingPriority(.defaultHigh, for: .vertical)
+        return label
+    }()
     
     var state : ArtModel? {
-            didSet {
-                assignPicture()
-            }
+        didSet {
+            assignPicture()
         }
+    }
     
     override func layoutSubviews() {
-            super.layoutSubviews()
-            setupViews()
-            setupConstraints()
-        }
-        
+        super.layoutSubviews()
+        setupViews()
+        setupConstraints()
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        state = nil
+        imageView.removeFromSuperview()
+        descriptionLabel.removeFromSuperview()
         
-        required init?(coder: NSCoder) {
-            super.init(coder: coder)
-        }
-        
-        override func prepareForReuse() {
-            super.prepareForReuse()
-            state = nil
-            imageView.removeFromSuperview()
-            descriptionLabel.removeFromSuperview()
-
-        }
-        
-        deinit {
-            state = nil
-        }
-        
+    }
+    
+    deinit {
+        state = nil
+    }
+    
     func setupViews(){
-        
         layer.borderWidth = 1
         layer.borderColor =  UIColor.lightGray.cgColor
         backgroundColor = .white
         contentView.addSubview(imageView)
         contentView.addSubview(descriptionLabel)
-    
     }
     
     func setupConstraints(){
