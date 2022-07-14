@@ -1,0 +1,17 @@
+/* 
+ Localizable.strings
+ rijksmuseum
+ 
+ Created by Dmitrii Shliugaev on 14/07/2022.
+ 
+ */
+
+"header.title" = "Page ";
+
+"network.error" = "An error occurred while fetching data";
+"decoding.error" = "An error occurred while decoding data";
+
+"yes" = "Yes";
+"no" = "No";
+
+"tryAgain" = "Try again";

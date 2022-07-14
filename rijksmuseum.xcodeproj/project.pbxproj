@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		721C930E2880A8B6006E8F6C /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = 721C930D2880A8B6006E8F6C /* SkeletonView */; };
 		72891E43287EAFBF00CAEDCB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72891E42287EAFBF00CAEDCB /* AppDelegate.swift */; };
 		72891E45287EAFBF00CAEDCB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72891E44287EAFBF00CAEDCB /* SceneDelegate.swift */; };
 		72891E4C287EAFC000CAEDCB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72891E4B287EAFC000CAEDCB /* Assets.xcassets */; };
@@ -23,7 +24,7 @@
 		72891E8C287EBC4100CAEDCB /* DetailPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72891E8B287EBC4100CAEDCB /* DetailPageView.swift */; };
 		72891E8E287EBC4E00CAEDCB /* DetailPagePresentor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72891E8D287EBC4E00CAEDCB /* DetailPagePresentor.swift */; };
 		72891E95287EE4A100CAEDCB /* ArtNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72891E94287EE4A100CAEDCB /* ArtNetworkService.swift */; };
-		72891E97287EE88D00CAEDCB /* ArtModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72891E96287EE88D00CAEDCB /* ArtModel.swift */; };
+		72891E97287EE88D00CAEDCB /* ArtListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72891E96287EE88D00CAEDCB /* ArtListItem.swift */; };
 		72891E9A287F0EC100CAEDCB /* CollectionEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72891E99287F0EC100CAEDCB /* CollectionEndpoint.swift */; };
 		72891E9C287F1D8F00CAEDCB /* DataResponseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72891E9B287F1D8F00CAEDCB /* DataResponseError.swift */; };
 		72891E9F287F1DCC00CAEDCB /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72891E9E287F1DCC00CAEDCB /* String+.swift */; };
@@ -33,6 +34,12 @@
 		72891EA8287F405B00CAEDCB /* ArtCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72891EA7287F405B00CAEDCB /* ArtCell.swift */; };
 		72891EAB287F455200CAEDCB /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 72891EAA287F455200CAEDCB /* Kingfisher */; };
 		72891EAD287F46DC00CAEDCB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72891EAC287F46DC00CAEDCB /* Constants.swift */; };
+		72A01E0C287FFF570036F3B4 /* ListViewItemsSourcing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A01E0B287FFF570036F3B4 /* ListViewItemsSourcing.swift */; };
+		72A01E1028803D170036F3B4 /* IndicatorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A01E0F28803D170036F3B4 /* IndicatorCell.swift */; };
+		72A01E12288048220036F3B4 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A01E11288048220036F3B4 /* HeaderView.swift */; };
+		72A01E1A288070470036F3B4 /* ArtDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A01E19288070470036F3B4 /* ArtDetails.swift */; };
+		72A01E1C288070C70036F3B4 /* ArtObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A01E1B288070C70036F3B4 /* ArtObject.swift */; };
+		72A01E2228808DDB0036F3B4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 72A01E2428808DDB0036F3B4 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,7 +80,7 @@
 		72891E8B287EBC4100CAEDCB /* DetailPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPageView.swift; sourceTree = "<group>"; };
 		72891E8D287EBC4E00CAEDCB /* DetailPagePresentor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPagePresentor.swift; sourceTree = "<group>"; };
 		72891E94287EE4A100CAEDCB /* ArtNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtNetworkService.swift; sourceTree = "<group>"; };
-		72891E96287EE88D00CAEDCB /* ArtModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtModel.swift; sourceTree = "<group>"; };
+		72891E96287EE88D00CAEDCB /* ArtListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtListItem.swift; sourceTree = "<group>"; };
 		72891E99287F0EC100CAEDCB /* CollectionEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionEndpoint.swift; sourceTree = "<group>"; };
 		72891E9B287F1D8F00CAEDCB /* DataResponseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataResponseError.swift; sourceTree = "<group>"; };
 		72891E9E287F1DCC00CAEDCB /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
@@ -82,6 +89,12 @@
 		72891EA4287F270800CAEDCB /* HTTPURLResponse+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HTTPURLResponse+.swift"; sourceTree = "<group>"; };
 		72891EA7287F405B00CAEDCB /* ArtCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtCell.swift; sourceTree = "<group>"; };
 		72891EAC287F46DC00CAEDCB /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		72A01E0B287FFF570036F3B4 /* ListViewItemsSourcing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewItemsSourcing.swift; sourceTree = "<group>"; };
+		72A01E0F28803D170036F3B4 /* IndicatorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndicatorCell.swift; sourceTree = "<group>"; };
+		72A01E11288048220036F3B4 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		72A01E19288070470036F3B4 /* ArtDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtDetails.swift; sourceTree = "<group>"; };
+		72A01E1B288070C70036F3B4 /* ArtObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtObject.swift; sourceTree = "<group>"; };
+		72A01E2328808DDB0036F3B4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +102,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				721C930E2880A8B6006E8F6C /* SkeletonView in Frameworks */,
 				72891EAB287F455200CAEDCB /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -143,6 +157,7 @@
 				72891E4D287EAFC000CAEDCB /* LaunchScreen.storyboard */,
 				72891E4B287EAFC000CAEDCB /* Assets.xcassets */,
 				72891E50287EAFC000CAEDCB /* Info.plist */,
+				72A01E2428808DDB0036F3B4 /* Localizable.strings */,
 			);
 			path = rijksmuseum;
 			sourceTree = "<group>";
@@ -176,6 +191,7 @@
 		72891E7A287EB7DB00CAEDCB /* ListModule */ = {
 			isa = PBXGroup;
 			children = (
+				72A01E0A287FFF480036F3B4 /* Common */,
 				72891EA6287F403C00CAEDCB /* Views */,
 				72891E7D287EB9E400CAEDCB /* ListConfigure.swift */,
 				72891E7F287EBA0900CAEDCB /* ListView.swift */,
@@ -218,8 +234,10 @@
 			isa = PBXGroup;
 			children = (
 				72891EA2287F26CA00CAEDCB /* Collection.swift */,
-				72891E96287EE88D00CAEDCB /* ArtModel.swift */,
+				72891E96287EE88D00CAEDCB /* ArtListItem.swift */,
 				72891EA0287F26AD00CAEDCB /* WebImage.swift */,
+				72A01E19288070470036F3B4 /* ArtDetails.swift */,
+				72A01E1B288070C70036F3B4 /* ArtObject.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -237,8 +255,18 @@
 			isa = PBXGroup;
 			children = (
 				72891EA7287F405B00CAEDCB /* ArtCell.swift */,
+				72A01E0F28803D170036F3B4 /* IndicatorCell.swift */,
+				72A01E11288048220036F3B4 /* HeaderView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		72A01E0A287FFF480036F3B4 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				72A01E0B287FFF570036F3B4 /* ListViewItemsSourcing.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,6 +287,7 @@
 			name = rijksmuseum;
 			packageProductDependencies = (
 				72891EAA287F455200CAEDCB /* Kingfisher */,
+				721C930D2880A8B6006E8F6C /* SkeletonView */,
 			);
 			productName = rijksmuseum;
 			productReference = 72891E3F287EAFBF00CAEDCB /* rijksmuseum.app */;
@@ -334,6 +363,7 @@
 			mainGroup = 72891E36287EAFBF00CAEDCB;
 			packageReferences = (
 				72891EA9287F455200CAEDCB /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				721C930C2880A8B6006E8F6C /* XCRemoteSwiftPackageReference "SkeletonView" */,
 			);
 			productRefGroup = 72891E40287EAFBF00CAEDCB /* Products */;
 			projectDirPath = "";
@@ -352,6 +382,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				72891E4F287EAFC000CAEDCB /* LaunchScreen.storyboard in Resources */,
+				72A01E2228808DDB0036F3B4 /* Localizable.strings in Resources */,
 				72891E4C287EAFC000CAEDCB /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -380,22 +411,27 @@
 				72891E9A287F0EC100CAEDCB /* CollectionEndpoint.swift in Sources */,
 				72891E95287EE4A100CAEDCB /* ArtNetworkService.swift in Sources */,
 				72891EA3287F26CA00CAEDCB /* Collection.swift in Sources */,
+				72A01E1028803D170036F3B4 /* IndicatorCell.swift in Sources */,
 				72891E8E287EBC4E00CAEDCB /* DetailPagePresentor.swift in Sources */,
 				72891E73287EB46B00CAEDCB /* Coordinator.swift in Sources */,
 				72891E43287EAFBF00CAEDCB /* AppDelegate.swift in Sources */,
 				72891E9C287F1D8F00CAEDCB /* DataResponseError.swift in Sources */,
 				72891E80287EBA0900CAEDCB /* ListView.swift in Sources */,
+				72A01E0C287FFF570036F3B4 /* ListViewItemsSourcing.swift in Sources */,
 				72891E9F287F1DCC00CAEDCB /* String+.swift in Sources */,
-				72891E97287EE88D00CAEDCB /* ArtModel.swift in Sources */,
+				72891E97287EE88D00CAEDCB /* ArtListItem.swift in Sources */,
 				72891E8C287EBC4100CAEDCB /* DetailPageView.swift in Sources */,
 				72891EA1287F26AD00CAEDCB /* WebImage.swift in Sources */,
 				72891EA8287F405B00CAEDCB /* ArtCell.swift in Sources */,
 				72891E78287EB5E500CAEDCB /* MainCoordinator.swift in Sources */,
+				72A01E1C288070C70036F3B4 /* ArtObject.swift in Sources */,
+				72A01E1A288070470036F3B4 /* ArtDetails.swift in Sources */,
 				72891E45287EAFBF00CAEDCB /* SceneDelegate.swift in Sources */,
 				72891EAD287F46DC00CAEDCB /* Constants.swift in Sources */,
 				72891E88287EBA8500CAEDCB /* ListPresentor.swift in Sources */,
 				72891E8A287EBC3900CAEDCB /* DetailPageConfigure.swift in Sources */,
 				72891EA5287F270800CAEDCB /* HTTPURLResponse+.swift in Sources */,
+				72A01E12288048220036F3B4 /* HeaderView.swift in Sources */,
 				72891E7E287EB9E400CAEDCB /* ListConfigure.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -441,6 +477,14 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
+		72A01E2428808DDB0036F3B4 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				72A01E2328808DDB0036F3B4 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -448,6 +492,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -508,6 +553,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -734,6 +780,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		721C930C2880A8B6006E8F6C /* XCRemoteSwiftPackageReference "SkeletonView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Juanpe/SkeletonView.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		72891EA9287F455200CAEDCB /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
@@ -745,6 +799,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		721C930D2880A8B6006E8F6C /* SkeletonView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 721C930C2880A8B6006E8F6C /* XCRemoteSwiftPackageReference "SkeletonView" */;
+			productName = SkeletonView;
+		};
 		72891EAA287F455200CAEDCB /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 72891EA9287F455200CAEDCB /* XCRemoteSwiftPackageReference "Kingfisher" */;

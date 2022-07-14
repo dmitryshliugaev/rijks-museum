@@ -8,7 +8,8 @@
 import Foundation
 
 protocol ArtNetworkServicing {
-    func fetchArts(page: Int, completion: @escaping (Result<[ArtModel], Error>) -> Void)
+    func fetchArtList(page: Int, completion: @escaping (Result<[ArtListItem], DataResponseError>) -> Void)
+    func fetchArtDetail(objectNumber: String, completion: @escaping (Result<ArtDetails, DataResponseError>) -> Void)
 }
 
 final class ArtNetworkService: ArtNetworkServicing {
@@ -18,7 +19,7 @@ final class ArtNetworkService: ArtNetworkServicing {
         self.session = session
     }
     
-    func fetchArts(page: Int, completion: @escaping (Result<[ArtModel], Error>) -> Void) {
+    func fetchArtList(page: Int, completion: @escaping (Result<[ArtListItem], DataResponseError>) -> Void) {
         let endPoint = CollectionEndpoint.collection(key: Constants.Services.apiKey,
                                                      page: page,
                                                      pageSize: Constants.Services.pageSize)
@@ -37,6 +38,26 @@ final class ArtNetworkService: ArtNetworkServicing {
             }
             
             completion(Result.success(decodedResponse.artObjects))
+        }).resume()
+    }
+    
+    func fetchArtDetail(objectNumber: String, completion: @escaping (Result<ArtDetails, DataResponseError>) -> Void) {
+        let endPoint = CollectionEndpoint.detail(key: Constants.Services.apiKey, objectNumber: objectNumber)
+        
+        session.dataTask(with: endPoint.url, completionHandler: { data, response, error in
+            guard let httpResponse = response as? HTTPURLResponse,
+                  httpResponse.hasSuccessStatusCode,
+                  let data = data  else {
+                completion(Result.failure(DataResponseError.network))
+                return
+            }
+            
+            guard let decodedResponse = try? JSONDecoder().decode(ArtDetails.self, from: data) else {
+                completion(Result.failure(DataResponseError.decoding))
+                return
+            }
+            
+            completion(Result.success(decodedResponse))
         }).resume()
     }
 }

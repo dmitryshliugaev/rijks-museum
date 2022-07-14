@@ -8,6 +8,15 @@
         "revision" : "2235a22ca249199cb736237f4bb9cc12b6ed416a",
         "version" : "7.3.0"
       }
+    },
+    {
+      "identity" : "skeletonview",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Juanpe/SkeletonView.git",
+      "state" : {
+        "revision" : "b640c1d8eee79c3a5ad6e0ae1afd2ae0fea30423",
+        "version" : "1.29.3"
+      }
     }
   ],
   "version" : 2

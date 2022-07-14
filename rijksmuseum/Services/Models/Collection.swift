@@ -8,5 +8,5 @@
 import Foundation
 
 struct Collection: Decodable {
-    let artObjects: [ArtModel]
+    let artObjects: [ArtListItem]
 }

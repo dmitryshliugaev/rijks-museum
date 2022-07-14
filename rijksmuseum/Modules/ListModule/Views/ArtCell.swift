@@ -8,14 +8,16 @@
 import UIKit
 import Kingfisher
 
-class ArtCell: UICollectionViewCell {
+final class ArtCell: UICollectionViewCell {
     var imageView : UIImageView = {
         let img = UIImageView()
-        img.backgroundColor = .gray
+        img.backgroundColor = .white
+        img.image = UIImage(systemName: "")
         img.contentMode = .scaleAspectFill
         img.clipsToBounds = true
         img.translatesAutoresizingMaskIntoConstraints = false
         img.setContentHuggingPriority(.defaultLow, for: .vertical)
+        img.kf.indicatorType = .activity
         return img
     }()
     
@@ -25,14 +27,16 @@ class ArtCell: UICollectionViewCell {
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = label.font.withSize(16)
+        label.font = UIFont.systemFont(ofSize: Constants.Font.small)
         label.setContentHuggingPriority(.defaultHigh, for: .vertical)
         return label
     }()
     
-    var state : ArtModel? {
+    var model : ArtListItem? {
         didSet {
             assignPicture()
+            
+            descriptionLabel.text = model?.title
         }
     }
     
@@ -52,14 +56,14 @@ class ArtCell: UICollectionViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        state = nil
+        model = nil
         imageView.removeFromSuperview()
         descriptionLabel.removeFromSuperview()
         
     }
     
     deinit {
-        state = nil
+        model = nil
     }
     
     func setupViews(){
@@ -71,28 +75,25 @@ class ArtCell: UICollectionViewCell {
     }
     
     func setupConstraints(){
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        
         imageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0).isActive = true
         imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0).isActive = true
         imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0).isActive = true
+        imageView.heightAnchor.constraint(equalToConstant: Constants.List.imageHeight).isActive = true
         
-        descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
-        
-        descriptionLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 5).isActive = true
-        descriptionLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 5).isActive = true
-        descriptionLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 5).isActive = true
-        descriptionLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -5).isActive = true
+        descriptionLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: Constants.UI.smallPadding).isActive = true
+        descriptionLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: Constants.UI.smallPadding).isActive = true
+        descriptionLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -Constants.UI.smallPadding).isActive = true
+        descriptionLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -Constants.UI.smallPadding).isActive = true
     }
     
     func assignPicture(){
-        guard let state = state else {
+        guard let model = model else {
             return
         }
         
-        imageView.kf.setImage(with: URL(string: state.webImage.getURLForSmallImageSize())!) { res in
+        imageView.kf.setImage(with: URL(string: model.webImage.getURLForSmallImageSize())!, placeholder: UIImage(named: "babushkaReading")) { res in
             if case .success(let value)  = res   {
-                ImageCache.default.store(value.image, forKey: state.webImage.getURLForSmallImageSize())
+                ImageCache.default.store(value.image, forKey: model.webImage.getURLForSmallImageSize())
             }
         }
     }

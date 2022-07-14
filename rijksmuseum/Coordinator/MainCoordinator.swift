@@ -19,11 +19,26 @@ class MainCoordinator: Coordinator {
     }
     
     func pushListView() {
-        let (view, _) = ListConfigure().configure()
+        let (view, _) = ListConfigure.configure(router: self)
         navigationController.pushViewController(view, animated: false)
     }
     
-    func pushDetailPageView() {
+    func pushDetailPageView(objectNumber: String) {
+        let (view, presenter) = DetailPageConfigure.configure(router: self)
+        presenter.configure(objectNumber: objectNumber)
+        navigationController.pushViewController(view, animated: true)
         
+    }
+}
+
+extension MainCoordinator: ListModulesOutput {
+    func didSelectPicture(objectNumber: String) {
+        pushDetailPageView(objectNumber: objectNumber)
+    }
+}
+
+extension MainCoordinator: DetailPageModulesOutput {
+    func back() {
+        navigationController.popToRootViewController(animated: true)
     }
 }
