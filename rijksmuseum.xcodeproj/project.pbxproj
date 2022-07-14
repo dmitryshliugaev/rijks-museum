@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		721C930E2880A8B6006E8F6C /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = 721C930D2880A8B6006E8F6C /* SkeletonView */; };
 		72891E43287EAFBF00CAEDCB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72891E42287EAFBF00CAEDCB /* AppDelegate.swift */; };
 		72891E45287EAFBF00CAEDCB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72891E44287EAFBF00CAEDCB /* SceneDelegate.swift */; };
 		72891E4C287EAFC000CAEDCB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72891E4B287EAFC000CAEDCB /* Assets.xcassets */; };
@@ -102,7 +101,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				721C930E2880A8B6006E8F6C /* SkeletonView in Frameworks */,
 				72891EAB287F455200CAEDCB /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -287,7 +285,6 @@
 			name = rijksmuseum;
 			packageProductDependencies = (
 				72891EAA287F455200CAEDCB /* Kingfisher */,
-				721C930D2880A8B6006E8F6C /* SkeletonView */,
 			);
 			productName = rijksmuseum;
 			productReference = 72891E3F287EAFBF00CAEDCB /* rijksmuseum.app */;
@@ -363,7 +360,6 @@
 			mainGroup = 72891E36287EAFBF00CAEDCB;
 			packageReferences = (
 				72891EA9287F455200CAEDCB /* XCRemoteSwiftPackageReference "Kingfisher" */,
-				721C930C2880A8B6006E8F6C /* XCRemoteSwiftPackageReference "SkeletonView" */,
 			);
 			productRefGroup = 72891E40287EAFBF00CAEDCB /* Products */;
 			projectDirPath = "";
@@ -780,14 +776,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		721C930C2880A8B6006E8F6C /* XCRemoteSwiftPackageReference "SkeletonView" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Juanpe/SkeletonView.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
-			};
-		};
 		72891EA9287F455200CAEDCB /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
@@ -799,11 +787,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		721C930D2880A8B6006E8F6C /* SkeletonView */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 721C930C2880A8B6006E8F6C /* XCRemoteSwiftPackageReference "SkeletonView" */;
-			productName = SkeletonView;
-		};
 		72891EAA287F455200CAEDCB /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 72891EA9287F455200CAEDCB /* XCRemoteSwiftPackageReference "Kingfisher" */;
