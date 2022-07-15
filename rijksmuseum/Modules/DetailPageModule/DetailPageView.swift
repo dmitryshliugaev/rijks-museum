@@ -64,7 +64,6 @@ final class DetailPageView: UIViewController, DetailPageViewInput {
         ])
         
         pictureView.kf.indicatorType = .activity
-        pictureVie
     }
     
     private func setupDescriptionViews() {
