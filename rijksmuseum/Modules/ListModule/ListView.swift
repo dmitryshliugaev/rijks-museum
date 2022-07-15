@@ -7,7 +7,6 @@
 
 import Foundation
 import UIKit
-import Lottie
 
 protocol ListViewInput: AnyObject {
     func updatePicturesList()
@@ -59,10 +58,13 @@ final class ListView: UIViewController, ListViewInput {
         view.addSubview(loadImageView)
         
         loadImageView.translatesAutoresizingMaskIntoConstraints = false
-        loadImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0).isActive = true
-        loadImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
-        loadImageView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = true
-        loadImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0).isActive = true
+        
+        NSLayoutConstraint.activate([
+            loadImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0),
+            loadImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
+            loadImageView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0),
+            loadImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0)
+        ])
     }
     
     private func setupCollectionView() {
@@ -80,10 +82,13 @@ final class ListView: UIViewController, ListViewInput {
         view.addSubview(collectionView)
         
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0).isActive = true
-        collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
-        collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = true
-        collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0).isActive = true
+        
+        NSLayoutConstraint.activate([
+            collectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0),
+            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
+            collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0),
+            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0)
+        ])
         
         collectionView.delegate = self
         collectionView.dataSource = self

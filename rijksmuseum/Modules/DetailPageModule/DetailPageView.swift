@@ -46,7 +46,7 @@ final class DetailPageView: UIViewController, DetailPageViewInput {
     
     private func setupImageView() {
         pictureView = UIImageView()
-        pictureView.backgroundColor = .white
+        pictureView.backgroundColor = .lightGray
         pictureView.contentMode = .scaleAspectFill
         pictureView.clipsToBounds = true
         pictureView.translatesAutoresizingMaskIntoConstraints = false
@@ -56,30 +56,38 @@ final class DetailPageView: UIViewController, DetailPageViewInput {
         
         pictureView.translatesAutoresizingMaskIntoConstraints = false
         
-        pictureView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0).isActive = true
-        pictureView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
-        pictureView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0).isActive = true
-        pictureView.heightAnchor.constraint(lessThanOrEqualToConstant: view.frame.height / 2).isActive = true
+        NSLayoutConstraint.activate([
+            pictureView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0),
+            pictureView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
+            pictureView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
+            pictureView.heightAnchor.constraint(lessThanOrEqualToConstant: view.frame.height / 2)
+        ])
         
         pictureView.kf.indicatorType = .activity
+        pictureVie
     }
     
     private func setupDescriptionViews() {
         titleLabel = UILabel()
         titleLabel.font = UIFont.systemFont(ofSize: Constants.Font.medium)
         setupLabel(label: titleLabel)
+        titleLabel.accessibilityIdentifier = "titleLabel"
         
-        titleLabel.topAnchor.constraint(equalTo: pictureView.bottomAnchor, constant: Constants.UI.mediumPadding).isActive = true
-        titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.UI.mediumPadding).isActive = true
-        titleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.UI.mediumPadding).isActive = true
+        NSLayoutConstraint.activate([
+            titleLabel.topAnchor.constraint(equalTo: pictureView.bottomAnchor, constant: Constants.UI.mediumPadding),
+            titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.UI.mediumPadding),
+            titleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.UI.mediumPadding)
+        ])
         
         principalOrFirstMakerLabel = UILabel()
         principalOrFirstMakerLabel.font = UIFont.systemFont(ofSize: Constants.Font.medium)
         setupLabel(label: principalOrFirstMakerLabel)
         
-        principalOrFirstMakerLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: Constants.UI.mediumPadding).isActive = true
-        principalOrFirstMakerLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.UI.mediumPadding).isActive = true
-        principalOrFirstMakerLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.UI.mediumPadding).isActive = true
+        NSLayoutConstraint.activate([
+            principalOrFirstMakerLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: Constants.UI.mediumPadding),
+            principalOrFirstMakerLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.UI.mediumPadding),
+            principalOrFirstMakerLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.UI.mediumPadding)
+        ])
         principalOrFirstMakerLabel.setContentHuggingPriority(UILayoutPriority(rawValue: 249), for: .vertical)
         
         
@@ -90,13 +98,17 @@ final class DetailPageView: UIViewController, DetailPageViewInput {
         descriptionTextView.textColor = .black
         descriptionTextView.translatesAutoresizingMaskIntoConstraints = false
         descriptionTextView.textContainer.lineFragmentPadding = 0
+        descriptionTextView.backgroundColor = .white
         
         view.addSubview(descriptionTextView)
         
-        descriptionTextView.topAnchor.constraint(equalTo: principalOrFirstMakerLabel.bottomAnchor, constant: Constants.UI.mediumPadding).isActive = true
-        descriptionTextView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.UI.mediumPadding).isActive = true
-        descriptionTextView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.UI.mediumPadding).isActive = true
-        descriptionTextView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -Constants.UI.mediumPadding ).isActive = true
+        NSLayoutConstraint.activate([
+            descriptionTextView.topAnchor.constraint(equalTo: principalOrFirstMakerLabel.bottomAnchor, constant: Constants.UI.mediumPadding),
+            descriptionTextView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.UI.mediumPadding),
+            descriptionTextView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.UI.mediumPadding),
+            descriptionTextView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -Constants.UI.mediumPadding )
+        ])
+        
         descriptionTextView.setContentHuggingPriority(UILayoutPriority(rawValue: 248), for: .vertical)
     }
     
@@ -133,9 +145,12 @@ final class DetailPageView: UIViewController, DetailPageViewInput {
     //MARK: - DetailPageViewInput
     
     func configure(model: ArtDetails) {
-        pictureView.kf.setImage(with: URL(string: model.artObject.webImage.url)!) { res in
-            if case .success(let value) = res   {
-                ImageCache.default.store(value.image, forKey: model.artObject.webImage.url)
+        if let urlString = model.artObject.webImage?.url,
+           let url = URL(string: urlString) {
+            pictureView.kf.setImage(with: url) { res in
+                if case .success(let value) = res   {
+                    ImageCache.default.store(value.image, forKey: urlString)
+                }
             }
         }
         

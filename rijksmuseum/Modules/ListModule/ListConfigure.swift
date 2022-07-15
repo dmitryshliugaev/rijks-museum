@@ -9,15 +9,15 @@ import Foundation
 import UIKit
 
 final class ListConfigure {
-    static func configure(router: ListModulesOutput) -> (view: some UIViewController, presenter: ListModulesInput) {
+    static func configure(router: ListModulesOutput) -> (view: UIViewController, presenter: ListModulesInput) {
         let view = ListView()
-        let presentor = ListPresentor()
-        view.output = presentor
-        view.itemSource = presentor
-        presentor.view = view
-        presentor.artNetworkService = ArtNetworkService()
-        presentor.router = router
+        let presenter = ListPresenter()
+        view.output = presenter
+        view.itemSource = presenter
+        presenter.view = view
+        presenter.artNetworkService = ArtNetworkService()
+        presenter.router = router
         
-        return (view, presentor)
+        return (view, presenter)
     }
 }

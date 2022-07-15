@@ -1,5 +1,5 @@
 //
-//  DetailPagePresentor.swift
+//  DetailPagePresenter.swift
 //  rijksmuseum
 //
 //  Created by Dmitrii Shliugaev on 13/07/2022.
@@ -8,14 +8,14 @@
 import Foundation
 
 protocol DetailPageModulesOutput {
-    func back()
+    func didBack()
 }
 
 protocol DetailPageModulesInput {
     func configure(objectNumber: String)
 }
 
-final class DetailPagePresentor: DetailPageViewOutput, DetailPageModulesInput {
+final class DetailPagePresenter: DetailPageViewOutput, DetailPageModulesInput {
     // MARK: - Dependencies
     weak var view: DetailPageViewInput?
     var artNetworkService: ArtNetworkServicing!
@@ -40,22 +40,18 @@ final class DetailPagePresentor: DetailPageViewOutput, DetailPageModulesInput {
     
     func fetchArtDetail(objectNumber: String) {
         artNetworkService.fetchArtDetail(objectNumber: objectNumber) { [weak self] result in
-            guard let self = self else { return }
-            
             switch result {
             case let .success(artDetail):
                 DispatchQueue.main.async {
-                    self.view?.configure(model: artDetail)
+                    self?.view?.configure(model: artDetail)
                 }
                 
             case let .failure(error):
                 DispatchQueue.main.async {
-                    self.view?.showErrorAlert(message: error.reason, tryAgainHandler: { [weak self] in
-                        guard let self = self else { return }
-                        
-                        self.fetchArtDetail(objectNumber: objectNumber)
-                    }, noHandler: { [weak self] in
-                        self?.router.back()
+                    self?.view?.showErrorAlert(message: error.reason, tryAgainHandler: {
+                        self?.fetchArtDetail(objectNumber: objectNumber)
+                    }, noHandler: {
+                        self?.router.didBack()
                     })
                 }
             }

@@ -27,10 +27,12 @@ final class HeaderView: UICollectionReusableView {
         
         textLabel.translatesAutoresizingMaskIntoConstraints = false
         
-        textLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: Constants.UI.mediumPadding).isActive = true
-        textLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: Constants.UI.mediumPadding).isActive = true
-        textLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -Constants.UI.mediumPadding).isActive = true
-        textLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -Constants.UI.mediumPadding).isActive = true
+        NSLayoutConstraint.activate([
+            textLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: Constants.UI.mediumPadding),
+            textLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: Constants.UI.mediumPadding),
+            textLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -Constants.UI.mediumPadding),
+            textLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -Constants.UI.mediumPadding)
+        ])
     }
     
     required init?(coder: NSCoder) {

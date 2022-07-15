@@ -11,7 +11,7 @@ import Kingfisher
 final class ArtCell: UICollectionViewCell {
     var imageView : UIImageView = {
         let img = UIImageView()
-        img.backgroundColor = .white
+        img.backgroundColor = .lightGray
         img.image = UIImage(systemName: "")
         img.contentMode = .scaleAspectFill
         img.clipsToBounds = true
@@ -59,7 +59,6 @@ final class ArtCell: UICollectionViewCell {
         model = nil
         imageView.removeFromSuperview()
         descriptionLabel.removeFromSuperview()
-        
     }
     
     deinit {
@@ -75,15 +74,19 @@ final class ArtCell: UICollectionViewCell {
     }
     
     func setupConstraints(){
-        imageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0).isActive = true
-        imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0).isActive = true
-        imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0).isActive = true
-        imageView.heightAnchor.constraint(equalToConstant: Constants.List.imageHeight).isActive = true
+        NSLayoutConstraint.activate([
+            imageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0),
+            imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0),
+            imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0),
+            imageView.heightAnchor.constraint(equalToConstant: Constants.List.imageHeight)
+        ])
         
-        descriptionLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: Constants.UI.smallPadding).isActive = true
-        descriptionLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: Constants.UI.smallPadding).isActive = true
-        descriptionLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -Constants.UI.smallPadding).isActive = true
-        descriptionLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -Constants.UI.smallPadding).isActive = true
+        NSLayoutConstraint.activate([
+            descriptionLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: Constants.UI.smallPadding),
+            descriptionLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: Constants.UI.smallPadding),
+            descriptionLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -Constants.UI.smallPadding),
+            descriptionLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -Constants.UI.smallPadding)
+        ])
     }
     
     func assignPicture(){
@@ -91,9 +94,12 @@ final class ArtCell: UICollectionViewCell {
             return
         }
         
-        imageView.kf.setImage(with: URL(string: model.webImage.getURLForSmallImageSize())!, placeholder: UIImage(named: "babushkaReading")) { res in
-            if case .success(let value)  = res   {
-                ImageCache.default.store(value.image, forKey: model.webImage.getURLForSmallImageSize())
+        if let shortUrlString = model.webImage?.getURLForSmallImageSize(),
+           let url = URL(string: shortUrlString) {
+            imageView.kf.setImage(with: url) { res in
+                if case .success(let value)  = res   {
+                    ImageCache.default.store(value.image, forKey: shortUrlString)
+                }
             }
         }
     }

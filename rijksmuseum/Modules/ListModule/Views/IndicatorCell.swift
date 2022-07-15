@@ -28,8 +28,12 @@ final class IndicatorCell: UICollectionViewCell {
     func setup(){
         contentView.addSubview(inidicator)
         inidicator.translatesAutoresizingMaskIntoConstraints = false
-        inidicator.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
-        inidicator.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
+        
+        NSLayoutConstraint.activate([
+            inidicator.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            inidicator.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
+        ])
+        
         inidicator.startAnimating()
     }
     

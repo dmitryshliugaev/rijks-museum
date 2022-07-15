@@ -7,21 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		721C931228816BF6006E8F6C /* ListPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721C931128816BF6006E8F6C /* ListPresenterTests.swift */; };
+		721C9317288195E6006E8F6C /* ListViewMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721C9316288195E6006E8F6C /* ListViewMock.swift */; };
+		721C931A28819683006E8F6C /* ArtNetworkServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721C931928819683006E8F6C /* ArtNetworkServiceMock.swift */; };
+		721C931C2881A41C006E8F6C /* RouterMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721C931B2881A41C006E8F6C /* RouterMock.swift */; };
 		72891E43287EAFBF00CAEDCB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72891E42287EAFBF00CAEDCB /* AppDelegate.swift */; };
 		72891E45287EAFBF00CAEDCB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72891E44287EAFBF00CAEDCB /* SceneDelegate.swift */; };
 		72891E4C287EAFC000CAEDCB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72891E4B287EAFC000CAEDCB /* Assets.xcassets */; };
 		72891E4F287EAFC000CAEDCB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72891E4D287EAFC000CAEDCB /* LaunchScreen.storyboard */; };
-		72891E5A287EAFC000CAEDCB /* rijksmuseumTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72891E59287EAFC000CAEDCB /* rijksmuseumTests.swift */; };
 		72891E64287EAFC000CAEDCB /* rijksmuseumUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72891E63287EAFC000CAEDCB /* rijksmuseumUITests.swift */; };
-		72891E66287EAFC000CAEDCB /* rijksmuseumUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72891E65287EAFC000CAEDCB /* rijksmuseumUITestsLaunchTests.swift */; };
 		72891E73287EB46B00CAEDCB /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72891E72287EB46B00CAEDCB /* Coordinator.swift */; };
 		72891E78287EB5E500CAEDCB /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72891E77287EB5E500CAEDCB /* MainCoordinator.swift */; };
 		72891E7E287EB9E400CAEDCB /* ListConfigure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72891E7D287EB9E400CAEDCB /* ListConfigure.swift */; };
 		72891E80287EBA0900CAEDCB /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72891E7F287EBA0900CAEDCB /* ListView.swift */; };
-		72891E88287EBA8500CAEDCB /* ListPresentor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72891E87287EBA8500CAEDCB /* ListPresentor.swift */; };
+		72891E88287EBA8500CAEDCB /* ListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72891E87287EBA8500CAEDCB /* ListPresenter.swift */; };
 		72891E8A287EBC3900CAEDCB /* DetailPageConfigure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72891E89287EBC3900CAEDCB /* DetailPageConfigure.swift */; };
 		72891E8C287EBC4100CAEDCB /* DetailPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72891E8B287EBC4100CAEDCB /* DetailPageView.swift */; };
-		72891E8E287EBC4E00CAEDCB /* DetailPagePresentor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72891E8D287EBC4E00CAEDCB /* DetailPagePresentor.swift */; };
+		72891E8E287EBC4E00CAEDCB /* DetailPagePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72891E8D287EBC4E00CAEDCB /* DetailPagePresenter.swift */; };
 		72891E95287EE4A100CAEDCB /* ArtNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72891E94287EE4A100CAEDCB /* ArtNetworkService.swift */; };
 		72891E97287EE88D00CAEDCB /* ArtListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72891E96287EE88D00CAEDCB /* ArtListItem.swift */; };
 		72891E9A287F0EC100CAEDCB /* CollectionEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72891E99287F0EC100CAEDCB /* CollectionEndpoint.swift */; };
@@ -59,6 +61,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		721C931128816BF6006E8F6C /* ListPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPresenterTests.swift; sourceTree = "<group>"; };
+		721C9316288195E6006E8F6C /* ListViewMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewMock.swift; sourceTree = "<group>"; };
+		721C931928819683006E8F6C /* ArtNetworkServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtNetworkServiceMock.swift; sourceTree = "<group>"; };
+		721C931B2881A41C006E8F6C /* RouterMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterMock.swift; sourceTree = "<group>"; };
 		72891E3F287EAFBF00CAEDCB /* rijksmuseum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = rijksmuseum.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		72891E42287EAFBF00CAEDCB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		72891E44287EAFBF00CAEDCB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -66,18 +72,16 @@
 		72891E4E287EAFC000CAEDCB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		72891E50287EAFC000CAEDCB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		72891E55287EAFC000CAEDCB /* rijksmuseumTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = rijksmuseumTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		72891E59287EAFC000CAEDCB /* rijksmuseumTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rijksmuseumTests.swift; sourceTree = "<group>"; };
 		72891E5F287EAFC000CAEDCB /* rijksmuseumUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = rijksmuseumUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		72891E63287EAFC000CAEDCB /* rijksmuseumUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rijksmuseumUITests.swift; sourceTree = "<group>"; };
-		72891E65287EAFC000CAEDCB /* rijksmuseumUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rijksmuseumUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		72891E72287EB46B00CAEDCB /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		72891E77287EB5E500CAEDCB /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		72891E7D287EB9E400CAEDCB /* ListConfigure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListConfigure.swift; sourceTree = "<group>"; };
 		72891E7F287EBA0900CAEDCB /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
-		72891E87287EBA8500CAEDCB /* ListPresentor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPresentor.swift; sourceTree = "<group>"; };
+		72891E87287EBA8500CAEDCB /* ListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPresenter.swift; sourceTree = "<group>"; };
 		72891E89287EBC3900CAEDCB /* DetailPageConfigure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPageConfigure.swift; sourceTree = "<group>"; };
 		72891E8B287EBC4100CAEDCB /* DetailPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPageView.swift; sourceTree = "<group>"; };
-		72891E8D287EBC4E00CAEDCB /* DetailPagePresentor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPagePresentor.swift; sourceTree = "<group>"; };
+		72891E8D287EBC4E00CAEDCB /* DetailPagePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPagePresenter.swift; sourceTree = "<group>"; };
 		72891E94287EE4A100CAEDCB /* ArtNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtNetworkService.swift; sourceTree = "<group>"; };
 		72891E96287EE88D00CAEDCB /* ArtListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtListItem.swift; sourceTree = "<group>"; };
 		72891E99287F0EC100CAEDCB /* CollectionEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionEndpoint.swift; sourceTree = "<group>"; };
@@ -122,6 +126,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		721C9315288194DF006E8F6C /* ListPresenterTests */ = {
+			isa = PBXGroup;
+			children = (
+				721C931128816BF6006E8F6C /* ListPresenterTests.swift */,
+			);
+			path = ListPresenterTests;
+			sourceTree = "<group>";
+		};
+		721C931828819675006E8F6C /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				721C9316288195E6006E8F6C /* ListViewMock.swift */,
+				721C931928819683006E8F6C /* ArtNetworkServiceMock.swift */,
+				721C931B2881A41C006E8F6C /* RouterMock.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
 		72891E36287EAFBF00CAEDCB = {
 			isa = PBXGroup;
 			children = (
@@ -163,7 +185,8 @@
 		72891E58287EAFC000CAEDCB /* rijksmuseumTests */ = {
 			isa = PBXGroup;
 			children = (
-				72891E59287EAFC000CAEDCB /* rijksmuseumTests.swift */,
+				721C931828819675006E8F6C /* Mocks */,
+				721C9315288194DF006E8F6C /* ListPresenterTests */,
 			);
 			path = rijksmuseumTests;
 			sourceTree = "<group>";
@@ -172,7 +195,6 @@
 			isa = PBXGroup;
 			children = (
 				72891E63287EAFC000CAEDCB /* rijksmuseumUITests.swift */,
-				72891E65287EAFC000CAEDCB /* rijksmuseumUITestsLaunchTests.swift */,
 			);
 			path = rijksmuseumUITests;
 			sourceTree = "<group>";
@@ -193,7 +215,7 @@
 				72891EA6287F403C00CAEDCB /* Views */,
 				72891E7D287EB9E400CAEDCB /* ListConfigure.swift */,
 				72891E7F287EBA0900CAEDCB /* ListView.swift */,
-				72891E87287EBA8500CAEDCB /* ListPresentor.swift */,
+				72891E87287EBA8500CAEDCB /* ListPresenter.swift */,
 			);
 			path = ListModule;
 			sourceTree = "<group>";
@@ -203,7 +225,7 @@
 			children = (
 				72891E89287EBC3900CAEDCB /* DetailPageConfigure.swift */,
 				72891E8B287EBC4100CAEDCB /* DetailPageView.swift */,
-				72891E8D287EBC4E00CAEDCB /* DetailPagePresentor.swift */,
+				72891E8D287EBC4E00CAEDCB /* DetailPagePresenter.swift */,
 			);
 			path = DetailPageModule;
 			sourceTree = "<group>";
@@ -408,7 +430,7 @@
 				72891E95287EE4A100CAEDCB /* ArtNetworkService.swift in Sources */,
 				72891EA3287F26CA00CAEDCB /* Collection.swift in Sources */,
 				72A01E1028803D170036F3B4 /* IndicatorCell.swift in Sources */,
-				72891E8E287EBC4E00CAEDCB /* DetailPagePresentor.swift in Sources */,
+				72891E8E287EBC4E00CAEDCB /* DetailPagePresenter.swift in Sources */,
 				72891E73287EB46B00CAEDCB /* Coordinator.swift in Sources */,
 				72891E43287EAFBF00CAEDCB /* AppDelegate.swift in Sources */,
 				72891E9C287F1D8F00CAEDCB /* DataResponseError.swift in Sources */,
@@ -424,7 +446,7 @@
 				72A01E1A288070470036F3B4 /* ArtDetails.swift in Sources */,
 				72891E45287EAFBF00CAEDCB /* SceneDelegate.swift in Sources */,
 				72891EAD287F46DC00CAEDCB /* Constants.swift in Sources */,
-				72891E88287EBA8500CAEDCB /* ListPresentor.swift in Sources */,
+				72891E88287EBA8500CAEDCB /* ListPresenter.swift in Sources */,
 				72891E8A287EBC3900CAEDCB /* DetailPageConfigure.swift in Sources */,
 				72891EA5287F270800CAEDCB /* HTTPURLResponse+.swift in Sources */,
 				72A01E12288048220036F3B4 /* HeaderView.swift in Sources */,
@@ -436,7 +458,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				72891E5A287EAFC000CAEDCB /* rijksmuseumTests.swift in Sources */,
+				721C931C2881A41C006E8F6C /* RouterMock.swift in Sources */,
+				721C9317288195E6006E8F6C /* ListViewMock.swift in Sources */,
+				721C931228816BF6006E8F6C /* ListPresenterTests.swift in Sources */,
+				721C931A28819683006E8F6C /* ArtNetworkServiceMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -444,7 +469,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				72891E66287EAFC000CAEDCB /* rijksmuseumUITestsLaunchTests.swift in Sources */,
 				72891E64287EAFC000CAEDCB /* rijksmuseumUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -10,10 +10,8 @@ import Foundation
 struct ArtListItem: Decodable, Equatable {
     let id: String
     let objectNumber: String
-    let title: String
-    let longTitle: String
-    let principalOrFirstMaker: String
-    let webImage: WebImage
+    let title: String?
+    let webImage: WebImage?
     
     static func == (lhs: ArtListItem, rhs: ArtListItem) -> Bool {
         return lhs.id == rhs.id

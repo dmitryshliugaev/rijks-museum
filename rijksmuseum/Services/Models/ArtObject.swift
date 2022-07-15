@@ -10,10 +10,8 @@ import Foundation
 struct ArtObject: Decodable {
     let id: String
     let objectNumber: String
-    let longTitle: String
-    let principalOrFirstMaker: String
-    let description: String
-    let subTitle: String
-    let physicalMedium: String
-    let webImage: WebImage
+    let longTitle: String?
+    let principalOrFirstMaker: String?
+    let description: String?
+    let webImage: WebImage?
 }

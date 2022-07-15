@@ -9,14 +9,14 @@ import Foundation
 import UIKit
 
 final class DetailPageConfigure {
-    static func configure(router: DetailPageModulesOutput) -> (view: some UIViewController, presenter: DetailPageModulesInput) {
+    static func configure(router: DetailPageModulesOutput) -> (view: UIViewController, presenter: DetailPageModulesInput) {
         let view = DetailPageView()
-        let presentor = DetailPagePresentor()
-        presentor.artNetworkService = ArtNetworkService()
-        view.output = presentor
-        presentor.view = view
-        presentor.router = router
+        let presenter = DetailPagePresenter()
+        presenter.artNetworkService = ArtNetworkService()
+        view.output = presenter
+        presenter.view = view
+        presenter.router = router
         
-        return (view, presentor)
+        return (view, presenter)
     }
 }

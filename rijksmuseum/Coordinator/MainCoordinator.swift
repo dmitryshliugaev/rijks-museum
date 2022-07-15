@@ -38,7 +38,7 @@ extension MainCoordinator: ListModulesOutput {
 }
 
 extension MainCoordinator: DetailPageModulesOutput {
-    func back() {
+    func didBack() {
         navigationController.popToRootViewController(animated: true)
     }
 }

@@ -1,5 +1,5 @@
 //
-//  ListPresentor.swift
+//  ListPresenter.swift
 //  rijksmuseum
 //
 //  Created by Dmitrii Shliugaev on 13/07/2022.
@@ -14,7 +14,7 @@ protocol ListModulesOutput {
     func didSelectPicture(objectNumber: String)
 }
 
-final class ListPresentor: ListViewOutput, ListModulesInput {
+final class ListPresenter: ListViewOutput, ListModulesInput {
     
     // MARK: - Dependencies
     weak var view: ListViewInput?
@@ -91,7 +91,7 @@ final class ListPresentor: ListViewOutput, ListModulesInput {
 
 //MARK: - ListViewItemsSourcing
 
-extension ListPresentor: ListViewItemsSourcing {
+extension ListPresenter: ListViewItemsSourcing {
     func numberOfSections() -> Int {
         return arts.isEmpty ? 0 : arts.count
     }
