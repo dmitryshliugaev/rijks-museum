@@ -8,8 +8,7 @@
 import UIKit
 
 final class IndicatorCell: UICollectionViewCell {
-    
-    var inidicator : UIActivityIndicatorView = {
+    lazy var inidicator : UIActivityIndicatorView = {
         let view = UIActivityIndicatorView()
         view.style = .medium
         return view
@@ -25,7 +24,7 @@ final class IndicatorCell: UICollectionViewCell {
         setup()
     }
     
-    func setup(){
+    private func setup(){
         contentView.addSubview(inidicator)
         inidicator.translatesAutoresizingMaskIntoConstraints = false
         

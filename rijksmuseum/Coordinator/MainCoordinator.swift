@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class MainCoordinator: Coordinator {
+final class MainCoordinator: Coordinator {
     var childCoordinators = [Coordinator]()
     var navigationController = UINavigationController()
     
@@ -27,7 +27,6 @@ class MainCoordinator: Coordinator {
         let (view, presenter) = DetailPageConfigure.configure(router: self)
         presenter.configure(objectNumber: objectNumber)
         navigationController.pushViewController(view, animated: true)
-        
     }
 }
 

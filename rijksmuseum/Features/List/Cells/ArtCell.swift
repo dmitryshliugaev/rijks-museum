@@ -9,7 +9,7 @@ import UIKit
 import Kingfisher
 
 final class ArtCell: UICollectionViewCell {
-    var imageView : UIImageView = {
+    private lazy var imageView : UIImageView = {
         let img = UIImageView()
         img.backgroundColor = .lightGray
         img.image = UIImage(systemName: "")
@@ -21,7 +21,7 @@ final class ArtCell: UICollectionViewCell {
         return img
     }()
     
-    var descriptionLabel : UILabel = {
+    private lazy var descriptionLabel : UILabel = {
         let label = UILabel()
         label.textColor = .black
         label.numberOfLines = 0
@@ -40,56 +40,51 @@ final class ArtCell: UICollectionViewCell {
         }
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        setupViews()
-        setupConstraints()
-    }
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
+        setup()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
+        setup()
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
+        imageView.kf.cancelDownloadTask()
+        imageView.image = nil
         model = nil
-        imageView.removeFromSuperview()
-        descriptionLabel.removeFromSuperview()
     }
     
     deinit {
         model = nil
     }
     
-    func setupViews(){
+    private func setup(){
         layer.borderWidth = 1
         layer.borderColor =  UIColor.lightGray.cgColor
         backgroundColor = .white
+        
         contentView.addSubview(imageView)
         contentView.addSubview(descriptionLabel)
+        NSLayoutConstraint.activate(layoutConstraints)
     }
     
-    func setupConstraints(){
-        NSLayoutConstraint.activate([
+    private lazy var layoutConstraints: [NSLayoutConstraint] = {
+        return [
             imageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0),
             imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0),
             imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0),
-            imageView.heightAnchor.constraint(equalToConstant: Constants.List.imageHeight)
-        ])
-        
-        NSLayoutConstraint.activate([
+            imageView.heightAnchor.constraint(equalToConstant: Constants.List.imageHeight),
             descriptionLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: Constants.UI.smallPadding),
             descriptionLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: Constants.UI.smallPadding),
             descriptionLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -Constants.UI.smallPadding),
             descriptionLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -Constants.UI.smallPadding)
-        ])
-    }
+        ]
+    }()
     
-    func assignPicture(){
+    private func assignPicture(){
         guard let model = model else {
             return
         }

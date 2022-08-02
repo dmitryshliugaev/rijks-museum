@@ -18,11 +18,11 @@ protocol DetailPageModulesInput {
 final class DetailPagePresenter: DetailPageViewOutput, DetailPageModulesInput {
     // MARK: - Dependencies
     weak var view: DetailPageViewInput?
-    var artNetworkService: ArtNetworkServicing!
-    var router: DetailPageModulesOutput!
+    var artNetworkService: ArtNetworkServicing?
+    var router: DetailPageModulesOutput?
     
     // MARK: - Properties
-    var objectNumber: String = ""
+    private var objectNumber: String = ""
     
     //MARK: - ListViewOutput
     func didLoad() {
@@ -39,7 +39,7 @@ final class DetailPagePresenter: DetailPageViewOutput, DetailPageModulesInput {
     //TODO: Need create Repository for data layer
     
     func fetchArtDetail(objectNumber: String) {
-        artNetworkService.fetchArtDetail(objectNumber: objectNumber) { [weak self] result in
+        artNetworkService?.fetchArtDetail(objectNumber: objectNumber) { [weak self] result in
             switch result {
             case let .success(artDetail):
                 DispatchQueue.main.async {
@@ -51,7 +51,7 @@ final class DetailPagePresenter: DetailPageViewOutput, DetailPageModulesInput {
                     self?.view?.showErrorAlert(message: error.reason, tryAgainHandler: {
                         self?.fetchArtDetail(objectNumber: objectNumber)
                     }, noHandler: {
-                        self?.router.didBack()
+                        self?.router?.didBack()
                     })
                 }
             }

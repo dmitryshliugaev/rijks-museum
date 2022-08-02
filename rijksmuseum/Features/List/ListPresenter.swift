@@ -18,13 +18,13 @@ final class ListPresenter: ListViewOutput, ListModulesInput {
     
     // MARK: - Dependencies
     weak var view: ListViewInput?
-    var artNetworkService: ArtNetworkServicing!
-    var router: ListModulesOutput!
+    var artNetworkService: ArtNetworkServicing?
+    var router: ListModulesOutput?
     
     // MARK: - Properties
-    var arts: [Int: [ArtListItem]] = [:]
-    var page: Int = 0
-    var loading: Bool = false
+    private var arts: [Int: [ArtListItem]] = [:]
+    private var page: Int = 0
+    private var loading: Bool = false
     
     //MARK: - ListViewOutput
     func didLoad() {
@@ -33,7 +33,7 @@ final class ListPresenter: ListViewOutput, ListModulesInput {
     
     func selectPicture(indexPath: IndexPath) {
         if let artListItem = arts[indexPath.section]?[indexPath.row] {
-            router.didSelectPicture(objectNumber: artListItem.objectNumber)
+            router?.didSelectPicture(objectNumber: artListItem.objectNumber)
         }
     }
     
@@ -54,7 +54,7 @@ final class ListPresenter: ListViewOutput, ListModulesInput {
     
     func fetchArts(page: Int) {
         loading = true
-        artNetworkService.fetchArtList(page: page) { [weak self] result in
+        artNetworkService?.fetchArtList(page: page) { [weak self] result in
             guard let self = self else { return }
             
             self.loading = false
@@ -103,5 +103,4 @@ extension ListPresenter: ListViewItemsSourcing {
     func itemModelFor(indexPath: IndexPath) -> ArtListItem? {
         return arts[indexPath.section]?[indexPath.row]
     }
-    
 }

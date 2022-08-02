@@ -167,12 +167,12 @@
 		72891E41287EAFBF00CAEDCB /* rijksmuseum */ = {
 			isa = PBXGroup;
 			children = (
-				72891E9D287F1DB900CAEDCB /* Helpers */,
 				72891E42287EAFBF00CAEDCB /* AppDelegate.swift */,
 				72891E44287EAFBF00CAEDCB /* SceneDelegate.swift */,
 				72891E74287EB5A800CAEDCB /* Coordinator */,
-				72891E7C287EB87300CAEDCB /* Modules */,
+				72891E7C287EB87300CAEDCB /* Features */,
 				72891E93287EE41A00CAEDCB /* Services */,
+				72891E9D287F1DB900CAEDCB /* Extensions */,
 				72891EAC287F46DC00CAEDCB /* Constants.swift */,
 				72891E4D287EAFC000CAEDCB /* LaunchScreen.storyboard */,
 				72891E4B287EAFC000CAEDCB /* Assets.xcassets */,
@@ -208,35 +208,35 @@
 			path = Coordinator;
 			sourceTree = "<group>";
 		};
-		72891E7A287EB7DB00CAEDCB /* ListModule */ = {
+		72891E7A287EB7DB00CAEDCB /* List */ = {
 			isa = PBXGroup;
 			children = (
 				72A01E0A287FFF480036F3B4 /* Common */,
-				72891EA6287F403C00CAEDCB /* Views */,
+				72891EA6287F403C00CAEDCB /* Cells */,
 				72891E7D287EB9E400CAEDCB /* ListConfigure.swift */,
 				72891E7F287EBA0900CAEDCB /* ListView.swift */,
 				72891E87287EBA8500CAEDCB /* ListPresenter.swift */,
 			);
-			path = ListModule;
+			path = List;
 			sourceTree = "<group>";
 		};
-		72891E7B287EB82500CAEDCB /* DetailPageModule */ = {
+		72891E7B287EB82500CAEDCB /* DetailPage */ = {
 			isa = PBXGroup;
 			children = (
 				72891E89287EBC3900CAEDCB /* DetailPageConfigure.swift */,
 				72891E8B287EBC4100CAEDCB /* DetailPageView.swift */,
 				72891E8D287EBC4E00CAEDCB /* DetailPagePresenter.swift */,
 			);
-			path = DetailPageModule;
+			path = DetailPage;
 			sourceTree = "<group>";
 		};
-		72891E7C287EB87300CAEDCB /* Modules */ = {
+		72891E7C287EB87300CAEDCB /* Features */ = {
 			isa = PBXGroup;
 			children = (
-				72891E7A287EB7DB00CAEDCB /* ListModule */,
-				72891E7B287EB82500CAEDCB /* DetailPageModule */,
+				72891E7A287EB7DB00CAEDCB /* List */,
+				72891E7B287EB82500CAEDCB /* DetailPage */,
 			);
-			path = Modules;
+			path = Features;
 			sourceTree = "<group>";
 		};
 		72891E93287EE41A00CAEDCB /* Services */ = {
@@ -262,23 +262,23 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		72891E9D287F1DB900CAEDCB /* Helpers */ = {
+		72891E9D287F1DB900CAEDCB /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				72891E9E287F1DCC00CAEDCB /* String+.swift */,
 				72891EA4287F270800CAEDCB /* HTTPURLResponse+.swift */,
 			);
-			path = Helpers;
+			path = Extensions;
 			sourceTree = "<group>";
 		};
-		72891EA6287F403C00CAEDCB /* Views */ = {
+		72891EA6287F403C00CAEDCB /* Cells */ = {
 			isa = PBXGroup;
 			children = (
 				72891EA7287F405B00CAEDCB /* ArtCell.swift */,
 				72A01E0F28803D170036F3B4 /* IndicatorCell.swift */,
 				72A01E11288048220036F3B4 /* HeaderView.swift */,
 			);
-			path = Views;
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		72A01E0A287FFF480036F3B4 /* Common */ = {

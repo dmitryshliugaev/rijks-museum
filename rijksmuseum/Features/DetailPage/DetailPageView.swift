@@ -21,13 +21,49 @@ protocol DetailPageViewOutput {
 final class DetailPageView: UIViewController, DetailPageViewInput {
     
     // MARK: - Dependencies
-    var output: DetailPageViewOutput!
+    var output: DetailPageViewOutput?
     
     // MARK: - Properties
-    private var pictureView: UIImageView!
-    private var titleLabel: UILabel!
-    private var principalOrFirstMakerLabel: UILabel!
-    private var descriptionTextView: UITextView!
+    private lazy var pictureView: UIImageView = {
+        let pictureView = UIImageView()
+        pictureView.backgroundColor = .lightGray
+        pictureView.contentMode = .scaleAspectFill
+        pictureView.clipsToBounds = true
+        pictureView.translatesAutoresizingMaskIntoConstraints = false
+        pictureView.setContentHuggingPriority(.defaultLow, for: .vertical)
+        pictureView.translatesAutoresizingMaskIntoConstraints = false
+        pictureView.kf.indicatorType = .activity
+        view.addSubview(pictureView)
+        return pictureView
+    }()
+    
+    private lazy var titleLabel: UILabel = {
+        let titleLabel = UILabel()
+        titleLabel.font = UIFont.systemFont(ofSize: Constants.Font.medium)
+        setupLabel(label: titleLabel)
+        titleLabel.accessibilityIdentifier = "titleLabel"
+        return titleLabel
+    }()
+    
+    private lazy var principalOrFirstMakerLabel: UILabel = {
+        let principalOrFirstMakerLabel = UILabel()
+        principalOrFirstMakerLabel.font = UIFont.systemFont(ofSize: Constants.Font.medium)
+        setupLabel(label: principalOrFirstMakerLabel)
+        return principalOrFirstMakerLabel
+    }()
+    
+    private lazy var descriptionTextView: UITextView = {
+        let descriptionTextView = UITextView()
+        descriptionTextView.isEditable = false
+        descriptionTextView.font = UIFont.systemFont(ofSize: Constants.Font.small)
+        descriptionTextView.contentInsetAdjustmentBehavior = .automatic
+        descriptionTextView.textColor = .black
+        descriptionTextView.translatesAutoresizingMaskIntoConstraints = false
+        descriptionTextView.textContainer.lineFragmentPadding = 0
+        descriptionTextView.backgroundColor = .white
+        view.addSubview(descriptionTextView)
+        return descriptionTextView
+    }()
     
     //MARK: - Life cycle
     override func viewDidLoad() {
@@ -35,52 +71,30 @@ final class DetailPageView: UIViewController, DetailPageViewInput {
         
         view.backgroundColor = .white
         
-        setupImageView()
-        setupDescriptionViews()
-        output.didLoad()
+        setupImageViewConstraints()
+        setupDescriptionViewsConstraints()
+        output?.didLoad()
     }
     
     override func loadView() {
         super.loadView()
     }
     
-    private func setupImageView() {
-        pictureView = UIImageView()
-        pictureView.backgroundColor = .lightGray
-        pictureView.contentMode = .scaleAspectFill
-        pictureView.clipsToBounds = true
-        pictureView.translatesAutoresizingMaskIntoConstraints = false
-        pictureView.setContentHuggingPriority(.defaultLow, for: .vertical)
-        
-        view.addSubview(pictureView)
-        
-        pictureView.translatesAutoresizingMaskIntoConstraints = false
-        
+    private func setupImageViewConstraints() {
         NSLayoutConstraint.activate([
             pictureView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0),
             pictureView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
             pictureView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
             pictureView.heightAnchor.constraint(lessThanOrEqualToConstant: view.frame.height / 2)
         ])
-        
-        pictureView.kf.indicatorType = .activity
     }
     
-    private func setupDescriptionViews() {
-        titleLabel = UILabel()
-        titleLabel.font = UIFont.systemFont(ofSize: Constants.Font.medium)
-        setupLabel(label: titleLabel)
-        titleLabel.accessibilityIdentifier = "titleLabel"
-        
+    private func setupDescriptionViewsConstraints() {
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: pictureView.bottomAnchor, constant: Constants.UI.mediumPadding),
             titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.UI.mediumPadding),
             titleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.UI.mediumPadding)
         ])
-        
-        principalOrFirstMakerLabel = UILabel()
-        principalOrFirstMakerLabel.font = UIFont.systemFont(ofSize: Constants.Font.medium)
-        setupLabel(label: principalOrFirstMakerLabel)
         
         NSLayoutConstraint.activate([
             principalOrFirstMakerLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: Constants.UI.mediumPadding),
@@ -89,25 +103,12 @@ final class DetailPageView: UIViewController, DetailPageViewInput {
         ])
         principalOrFirstMakerLabel.setContentHuggingPriority(UILayoutPriority(rawValue: 249), for: .vertical)
         
-        
-        descriptionTextView = UITextView()
-        descriptionTextView.isEditable = false
-        descriptionTextView.font = UIFont.systemFont(ofSize: Constants.Font.small)
-        descriptionTextView.contentInsetAdjustmentBehavior = .automatic
-        descriptionTextView.textColor = .black
-        descriptionTextView.translatesAutoresizingMaskIntoConstraints = false
-        descriptionTextView.textContainer.lineFragmentPadding = 0
-        descriptionTextView.backgroundColor = .white
-        
-        view.addSubview(descriptionTextView)
-        
         NSLayoutConstraint.activate([
             descriptionTextView.topAnchor.constraint(equalTo: principalOrFirstMakerLabel.bottomAnchor, constant: Constants.UI.mediumPadding),
             descriptionTextView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.UI.mediumPadding),
             descriptionTextView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.UI.mediumPadding),
             descriptionTextView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -Constants.UI.mediumPadding )
         ])
-        
         descriptionTextView.setContentHuggingPriority(UILayoutPriority(rawValue: 248), for: .vertical)
     }
     

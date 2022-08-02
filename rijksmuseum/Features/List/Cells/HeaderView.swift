@@ -8,7 +8,7 @@
 import UIKit
 
 final class HeaderView: UICollectionReusableView {
-    var textLabel : UILabel = {
+    lazy var textLabel : UILabel = {
         let label = UILabel()
         label.textColor = .black
         label.numberOfLines = 0
@@ -22,7 +22,15 @@ final class HeaderView: UICollectionReusableView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
+        setup()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        setup()
+    }
+    
+    private func setup() {
         self.addSubview(textLabel)
         
         textLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -33,9 +41,5 @@ final class HeaderView: UICollectionReusableView {
             textLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -Constants.UI.mediumPadding),
             textLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -Constants.UI.mediumPadding)
         ])
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
 }
