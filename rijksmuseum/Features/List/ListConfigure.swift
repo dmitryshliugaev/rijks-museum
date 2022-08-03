@@ -15,7 +15,7 @@ final class ListConfigure {
         view.output = presenter
         view.itemSource = presenter
         presenter.view = view
-        presenter.artNetworkService = ArtNetworkService()
+        presenter.repository = Dependency.sharedInstance.repository
         presenter.router = router
         
         return (view, presenter)

@@ -27,7 +27,7 @@ class ListPresenterTests: XCTestCase {
         presenter.view = viewMock
         presenter.artNetworkService = artNetworkServiceMock
         presenter.router = routerMock
-        presenter.arts = [0: [ArtListItem(id: "id", objectNumber: objectNumber, title: nil, webImage: nil)]]
+        presenter.arts = [0: [ArtObjectResponse(id: "id", objectNumber: objectNumber, title: nil, webImage: nil)]]
         
         self.presenter = presenter
     }

@@ -18,7 +18,7 @@ protocol DetailPageModulesInput {
 final class DetailPagePresenter: DetailPageViewOutput, DetailPageModulesInput {
     // MARK: - Dependencies
     weak var view: DetailPageViewInput?
-    var artNetworkService: ArtNetworkServicing?
+    var repository: RijksRepositoryProtocol?
     var router: DetailPageModulesOutput?
     
     // MARK: - Properties
@@ -36,10 +36,8 @@ final class DetailPagePresenter: DetailPageViewOutput, DetailPageModulesInput {
     
     //MARK: - Services
     
-    //TODO: Need create Repository for data layer
-    
     func fetchArtDetail(objectNumber: String) {
-        artNetworkService?.fetchArtDetail(objectNumber: objectNumber) { [weak self] result in
+        repository?.getCollectionDetail(objectNumber: objectNumber, completion: { [weak self] result in
             switch result {
             case let .success(artDetail):
                 DispatchQueue.main.async {
@@ -48,13 +46,13 @@ final class DetailPagePresenter: DetailPageViewOutput, DetailPageModulesInput {
                 
             case let .failure(error):
                 DispatchQueue.main.async {
-                    self?.view?.showErrorAlert(message: error.reason, tryAgainHandler: {
+                    self?.view?.showErrorAlert(message: error.localizedDescription, tryAgainHandler: {
                         self?.fetchArtDetail(objectNumber: objectNumber)
                     }, noHandler: {
                         self?.router?.didBack()
                     })
                 }
             }
-        }
+        })
     }
 }

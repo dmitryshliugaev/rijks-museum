@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Kingfisher
 
 final class ArtCell: UICollectionViewCell {
     private lazy var imageView : UIImageView = {
@@ -17,7 +16,6 @@ final class ArtCell: UICollectionViewCell {
         img.clipsToBounds = true
         img.translatesAutoresizingMaskIntoConstraints = false
         img.setContentHuggingPriority(.defaultLow, for: .vertical)
-        img.kf.indicatorType = .activity
         return img
     }()
     
@@ -32,7 +30,7 @@ final class ArtCell: UICollectionViewCell {
         return label
     }()
     
-    var model : ArtListItem? {
+    var model : ArtCollectionObject? {
         didSet {
             assignPicture()
             
@@ -52,7 +50,6 @@ final class ArtCell: UICollectionViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        imageView.kf.cancelDownloadTask()
         imageView.image = nil
         model = nil
     }
@@ -89,11 +86,15 @@ final class ArtCell: UICollectionViewCell {
             return
         }
         
-        if let shortUrlString = model.webImage?.getURLForSmallImageSize(),
-           let url = URL(string: shortUrlString) {
-            imageView.kf.setImage(with: url) { res in
-                if case .success(let value)  = res   {
-                    ImageCache.default.store(value.image, forKey: shortUrlString)
+        if let url = URL(string: model.webImage.getURLForSmallImageSize()) {
+            Dependency.sharedInstance.imageDownloader.downloadImage(from: url) { result in
+                switch result {
+                case .success(let image):
+                    if self.model?.webImage.getURLForSmallImageSize() == url.absoluteString {
+                        self.imageView.image = image
+                    }
+                case .failure(_):
+                    self.imageView.image = UIImage(systemName: "exclamationmark.triangle")
                 }
             }
         }

@@ -12,7 +12,7 @@ final class DetailPageConfigure {
     static func configure(router: DetailPageModulesOutput) -> (view: UIViewController, presenter: DetailPageModulesInput) {
         let view = DetailPageView()
         let presenter = DetailPagePresenter()
-        presenter.artNetworkService = ArtNetworkService()
+        presenter.repository = Dependency.sharedInstance.repository
         view.output = presenter
         presenter.view = view
         presenter.router = router

@@ -9,6 +9,7 @@ import Foundation
 
 protocol ListViewItemsSourcing {
     func numberOfSections() -> Int
-    func itemsInSection(index: Int) -> Int?
-    func itemModelFor(indexPath: IndexPath) -> ArtListItem?
+    func sectionHeader(index: Int) -> String
+    func itemsInSection(index: Int) -> Int
+    func itemModelFor(indexPath: IndexPath) -> ArtCollectionObject
 }

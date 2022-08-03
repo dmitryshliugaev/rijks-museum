@@ -26,7 +26,7 @@ final class ListView: UIViewController, ListViewInput {
     var output: ListViewOutput?
     var itemSource: ListViewItemsSourcing?
     
-    // MARK: - Properties
+    // MARK: - UI
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
@@ -39,8 +39,6 @@ final class ListView: UIViewController, ListViewInput {
         collectionView.register(IndicatorCell.self, forCellWithReuseIdentifier: indicatorCellID)
         collectionView.register(HeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerViewID)
         collectionView.backgroundColor = .white
-        view.addSubview(collectionView)
-        
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         
         collectionView.delegate = self
@@ -52,13 +50,13 @@ final class ListView: UIViewController, ListViewInput {
         let loadImageView = UIImageView(image: UIImage(named: "babushkaReading"))
         loadImageView.contentMode = .scaleAspectFill
         loadImageView.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(loadImageView)
+        
         return loadImageView
     }()
     
-    private var isFirstLoading = true
     
-    //MARK: - Constants
+    //MARK: - Properties
+    private var isFirstLoading = true
     private let artCellID = "ArtCell"
     private let indicatorCellID = "IndicatorCell"
     private let headerViewID = "HeaderView"
@@ -67,7 +65,10 @@ final class ListView: UIViewController, ListViewInput {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        view.addSubview(collectionView)
+        view.addSubview(loadImageView)
         NSLayoutConstraint.activate(layoutConstraints)
+        
         output?.didLoad()
     }
     
@@ -175,7 +176,7 @@ extension ListView: UICollectionViewDataSource {
             guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerViewID, for: indexPath) as? HeaderView else {
                 return UICollectionReusableView()
             }
-            header.textLabel.text = "header.title".localizedString + "\(indexPath.section + 1)"
+            header.textLabel.text = itemSource?.sectionHeader(index: indexPath.section)
             return header
         default:
             return UICollectionReusableView()

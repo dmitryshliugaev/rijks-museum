@@ -18,12 +18,13 @@ final class ListPresenter: ListViewOutput, ListModulesInput {
     
     // MARK: - Dependencies
     weak var view: ListViewInput?
-    var artNetworkService: ArtNetworkServicing?
+    var repository: RijksRepositoryProtocol?
     var router: ListModulesOutput?
     
     // MARK: - Properties
-    private var arts: [Int: [ArtListItem]] = [:]
-    private var page: Int = 0
+    private var sections: [ListSectionModel] = []
+    
+    private var page: Int = 1
     private var loading: Bool = false
     
     //MARK: - ListViewOutput
@@ -32,14 +33,12 @@ final class ListPresenter: ListViewOutput, ListModulesInput {
     }
     
     func selectPicture(indexPath: IndexPath) {
-        if let artListItem = arts[indexPath.section]?[indexPath.row] {
-            router?.didSelectPicture(objectNumber: artListItem.objectNumber)
-        }
+        let item = sections[indexPath.section].item(atItemIndex: indexPath.row)
+        router?.didSelectPicture(objectNumber: item.objectNumber)
     }
     
     func loadNewPage(currentItem: IndexPath) {
-        if currentItem.row == arts.count - 1 && !loading {
-            page += 1
+        if currentItem.row == sections.count - 1 && !loading {
             fetchArts(page: page)
         }
     }
@@ -49,19 +48,21 @@ final class ListPresenter: ListViewOutput, ListModulesInput {
     }
     
     //MARK: - Services
-    
-    //TODO: Need create Repository for data layer
-    
     func fetchArts(page: Int) {
         loading = true
-        artNetworkService?.fetchArtList(page: page) { [weak self] result in
+        repository?.getCollection(page: page, completion: { [weak self] result in
             guard let self = self else { return }
             
             self.loading = false
             
             switch result {
-            case let .success(newArts):
-                self.arts[self.page] = newArts
+            case let .success(artCollection):
+                self.sections.append(ListSectionModel(
+                    header: "header.title".localizedString + "\(self.sections.count + 1)",
+                    items: artCollection.artObjects
+                ))
+                
+                self.page += 1
                 
                 DispatchQueue.main.async {
                     self.view?.updatePicturesList()
@@ -69,23 +70,17 @@ final class ListPresenter: ListViewOutput, ListModulesInput {
                 
             case let .failure(error):
                 
-                let prevPage = self.page
-                
-                if self.page > 0 {
-                    self.page -= 1
-                }
-                
                 DispatchQueue.main.async {
-                    self.view?.showErrorAlert(message: error.reason, tryAgainHandler: { [weak self] in
+                    self.view?.showErrorAlert(message: error.localizedDescription, tryAgainHandler: { [weak self] in
                         guard let self = self else { return }
                         
                         if !self.loading {
-                            self.fetchArts(page: prevPage)
+                            self.fetchArts(page: page)
                         }
                     })
                 }
             }
-        }
+        })
     }
 }
 
@@ -93,14 +88,18 @@ final class ListPresenter: ListViewOutput, ListModulesInput {
 
 extension ListPresenter: ListViewItemsSourcing {
     func numberOfSections() -> Int {
-        return arts.isEmpty ? 0 : arts.count
+        return sections.isEmpty ? 0 : sections.count
     }
     
-    func itemsInSection(index: Int) -> Int? {
-        return arts[index]?.count
+    func sectionHeader(index: Int) -> String {
+        return sections[index].header
     }
     
-    func itemModelFor(indexPath: IndexPath) -> ArtListItem? {
-        return arts[indexPath.section]?[indexPath.row]
+    func itemsInSection(index: Int) -> Int {
+        return sections[index].count
+    }
+    
+    func itemModelFor(indexPath: IndexPath) -> ArtCollectionObject {
+        return sections[indexPath.section].item(atItemIndex: indexPath.row)
     }
 }

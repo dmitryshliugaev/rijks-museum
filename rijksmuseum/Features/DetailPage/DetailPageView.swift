@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Kingfisher
 
 protocol DetailPageViewInput: AnyObject {
     func configure(model: ArtDetails)
@@ -32,8 +31,6 @@ final class DetailPageView: UIViewController, DetailPageViewInput {
         pictureView.translatesAutoresizingMaskIntoConstraints = false
         pictureView.setContentHuggingPriority(.defaultLow, for: .vertical)
         pictureView.translatesAutoresizingMaskIntoConstraints = false
-        pictureView.kf.indicatorType = .activity
-        view.addSubview(pictureView)
         return pictureView
     }()
     
@@ -61,7 +58,6 @@ final class DetailPageView: UIViewController, DetailPageViewInput {
         descriptionTextView.translatesAutoresizingMaskIntoConstraints = false
         descriptionTextView.textContainer.lineFragmentPadding = 0
         descriptionTextView.backgroundColor = .white
-        view.addSubview(descriptionTextView)
         return descriptionTextView
     }()
     
@@ -70,6 +66,11 @@ final class DetailPageView: UIViewController, DetailPageViewInput {
         super.viewDidLoad()
         
         view.backgroundColor = .white
+        
+        view.addSubview(pictureView)
+        view.addSubview(titleLabel)
+        view.addSubview(principalOrFirstMakerLabel)
+        view.addSubview(descriptionTextView)
         
         setupImageViewConstraints()
         setupDescriptionViewsConstraints()
@@ -119,7 +120,6 @@ final class DetailPageView: UIViewController, DetailPageViewInput {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.setContentHuggingPriority(.defaultHigh, for: .vertical)
         label.textAlignment = .natural
-        view.addSubview(label)
     }
     
     //MARK: - Error handling
@@ -145,17 +145,19 @@ final class DetailPageView: UIViewController, DetailPageViewInput {
     //MARK: - DetailPageViewInput
     
     func configure(model: ArtDetails) {
-        if let urlString = model.artObject.webImage?.url,
-           let url = URL(string: urlString) {
-            pictureView.kf.setImage(with: url) { res in
-                if case .success(let value) = res   {
-                    ImageCache.default.store(value.image, forKey: urlString)
+        if let url = URL(string: model.webImage.url) {
+            Dependency.sharedInstance.imageDownloader.downloadImage(from: url) { result in
+                switch result {
+                case .success(let image):
+                    self.pictureView.image = image
+                case .failure(_):
+                    self.pictureView.image = UIImage(systemName: "exclamationmark.triangle")
                 }
             }
         }
         
-        titleLabel.text = model.artObject.longTitle
-        principalOrFirstMakerLabel.text = model.artObject.principalOrFirstMaker
-        descriptionTextView.text = model.artObject.description
+        titleLabel.text = model.longTitle
+        principalOrFirstMakerLabel.text = model.principalOrFirstMaker
+        descriptionTextView.text = model.description
     }
 }

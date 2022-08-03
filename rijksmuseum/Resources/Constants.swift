@@ -18,7 +18,7 @@ struct Constants {
         #warning("This is not safe place for API KEY")
         static let apiKey = "0fiuZFh4"
         
-        static let baseURL = "https://www.rijksmuseum.nl/api/nl"
+        static let baseURL = "https://www.rijksmuseum.nl/api/"
     }
     
     struct List {

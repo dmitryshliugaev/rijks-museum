@@ -8,8 +8,8 @@
 import Foundation
 import UIKit
 
-final class MainCoordinator: Coordinator {
-    var childCoordinators = [Coordinator]()
+final class MainCoordinator: CoordinatorProtocol {
+    var childCoordinators = [CoordinatorProtocol]()
     var navigationController = UINavigationController()
     
     init() {}
