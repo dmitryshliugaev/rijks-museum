@@ -69,6 +69,8 @@ final class ListView: UIViewController, ListViewInput {
         view.addSubview(loadImageView)
         NSLayoutConstraint.activate(layoutConstraints)
         
+        navigationController?.navigationBar.prefersLargeTitles = true
+        
         output?.didLoad()
     }
     
@@ -82,6 +84,7 @@ final class ListView: UIViewController, ListViewInput {
             collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            
             loadImageView.topAnchor.constraint(equalTo: view.topAnchor),
             loadImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             loadImageView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
@@ -115,6 +118,7 @@ final class ListView: UIViewController, ListViewInput {
         if self.isFirstLoading {
             self.isFirstLoading = false
             self.loadImageView.removeFromSuperview()
+            self.navigationItem.title = "collection.view.title".localizedString
         }
     }
 }

@@ -19,6 +19,7 @@ struct Constants {
         static let apiKey = "0fiuZFh4"
         
         static let baseURL = "https://www.rijksmuseum.nl/api/"
+        static let artType = "painting"
     }
     
     struct List {

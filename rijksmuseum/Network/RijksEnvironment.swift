@@ -30,7 +30,9 @@ enum RijksRoute: NetworkRouteProtocol {
         case .collection(let page):
             return [
                 "key": Constants.Services.apiKey,
-                "p": page
+                "p": page,
+                "type": Constants.Services.artType,
+                "imgonly": true
             ]
         case .detail:
             return [

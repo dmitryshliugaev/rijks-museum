@@ -74,6 +74,7 @@ final class ArtCell: UICollectionViewCell {
             imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0),
             imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0),
             imageView.heightAnchor.constraint(equalToConstant: Constants.List.imageHeight),
+            
             descriptionLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: Constants.UI.smallPadding),
             descriptionLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: Constants.UI.smallPadding),
             descriptionLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -Constants.UI.smallPadding),

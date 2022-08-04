@@ -71,9 +71,11 @@ final class DetailPageView: UIViewController, DetailPageViewInput {
         view.addSubview(titleLabel)
         view.addSubview(principalOrFirstMakerLabel)
         view.addSubview(descriptionTextView)
-        
-        setupImageViewConstraints()
+        NSLayoutConstraint.activate(layoutConstraints)
         setupDescriptionViewsConstraints()
+        
+        navigationItem.largeTitleDisplayMode = .never
+        
         output?.didLoad()
     }
     
@@ -81,35 +83,30 @@ final class DetailPageView: UIViewController, DetailPageViewInput {
         super.loadView()
     }
     
-    private func setupImageViewConstraints() {
-        NSLayoutConstraint.activate([
+    private lazy var layoutConstraints: [NSLayoutConstraint] = {
+        return [
             pictureView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0),
             pictureView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
             pictureView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
-            pictureView.heightAnchor.constraint(lessThanOrEqualToConstant: view.frame.height / 2)
-        ])
-    }
-    
-    private func setupDescriptionViewsConstraints() {
-        NSLayoutConstraint.activate([
+            pictureView.heightAnchor.constraint(lessThanOrEqualToConstant: view.frame.height / 2),
+            
             titleLabel.topAnchor.constraint(equalTo: pictureView.bottomAnchor, constant: Constants.UI.mediumPadding),
             titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.UI.mediumPadding),
-            titleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.UI.mediumPadding)
-        ])
-        
-        NSLayoutConstraint.activate([
+            titleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.UI.mediumPadding),
+            
             principalOrFirstMakerLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: Constants.UI.mediumPadding),
             principalOrFirstMakerLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.UI.mediumPadding),
-            principalOrFirstMakerLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.UI.mediumPadding)
-        ])
-        principalOrFirstMakerLabel.setContentHuggingPriority(UILayoutPriority(rawValue: 249), for: .vertical)
-        
-        NSLayoutConstraint.activate([
+            principalOrFirstMakerLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.UI.mediumPadding),
+            
             descriptionTextView.topAnchor.constraint(equalTo: principalOrFirstMakerLabel.bottomAnchor, constant: Constants.UI.mediumPadding),
             descriptionTextView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.UI.mediumPadding),
             descriptionTextView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.UI.mediumPadding),
             descriptionTextView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -Constants.UI.mediumPadding )
-        ])
+        ]
+    }()
+    
+    private func setupDescriptionViewsConstraints() {
+        principalOrFirstMakerLabel.setContentHuggingPriority(UILayoutPriority(rawValue: 249), for: .vertical)
         descriptionTextView.setContentHuggingPriority(UILayoutPriority(rawValue: 248), for: .vertical)
     }
     

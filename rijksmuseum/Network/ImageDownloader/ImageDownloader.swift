@@ -8,6 +8,10 @@
 import Foundation
 import UIKit
 
+/*
+  Implemented imageCache without using NSCache, because it's assessment test app
+ */
+
 protocol ImageDownloaderProtocol {
     func downloadImage(from url: URL, completion: @escaping (Result<UIImage, Error>) -> Void)
 }
