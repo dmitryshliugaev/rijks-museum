@@ -23,7 +23,7 @@ final class RijksRepository: RijksRepositoryProtocol {
     
     func getCollection(page: Int,
                        completion: @escaping (_ result: Result<ArtCollection, Error>) -> Void) {
-        networkService.fetchArtList(page: page) { result in
+        networkService.fetchArtList(page: page, pageSize: Constants.Services.pageSize) { result in
             switch result {
             case .success(let response):
                 let collection = ArtCollection(collectionResponse: response)

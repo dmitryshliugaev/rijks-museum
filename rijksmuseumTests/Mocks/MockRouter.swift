@@ -1,14 +1,14 @@
 //
-//  RouterMock.swift
+//  MockRouter.swift
 //  rijksmuseumTests
 //
-//  Created by Dmitrii Shliugaev on 15/07/2022.
+//  Created by Dmitrii Shliugaev on 05/08/2022.
 //
 
 import XCTest
 @testable import rijksmuseum
 
-class RouterMock: ListModulesOutput {
+class MockRouter: ListModulesOutput {
     var isDidSelectPicture = false
     var objectNumber = ""
     

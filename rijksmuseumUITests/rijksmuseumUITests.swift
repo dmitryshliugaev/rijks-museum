@@ -26,7 +26,7 @@ class rijksmuseumUITests: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
-        sleep(10)
+        sleep(5)
         
         app.collectionViews.cells.element(boundBy: 0).tap()
         
@@ -37,5 +37,30 @@ class rijksmuseumUITests: XCTestCase {
         waitForExpectations(timeout: 5, handler: nil)
         
         XCTAssert(titleLabel.exists)
+    }
+    
+    func testPaginationCollectionVIew() throws {
+        let app = XCUIApplication()
+        app.launch()
+        
+        sleep(5)
+        
+        let maxScrolls = 20
+        var count = 0
+        
+        while count < maxScrolls {
+            app.swipeUp()
+            sleep(1)
+            
+            let elem = app.staticTexts["headerLabel"].firstMatch
+            if elem.exists, elem.label == "Page 2" {
+                XCTAssertTrue(true)
+                return
+            }
+            
+            count += 1
+        }
+        
+        XCTFail()
     }
 }

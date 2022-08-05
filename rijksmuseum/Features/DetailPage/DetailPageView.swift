@@ -38,7 +38,7 @@ final class DetailPageView: UIViewController, DetailPageViewInput {
         let titleLabel = UILabel()
         titleLabel.font = UIFont.systemFont(ofSize: Constants.Font.medium)
         setupLabel(label: titleLabel)
-        titleLabel.accessibilityIdentifier = "titleLabel"
+        titleLabel.accessibilityIdentifier = Constants.AccessibilityIdentifier.titleLabel
         return titleLabel
     }()
     

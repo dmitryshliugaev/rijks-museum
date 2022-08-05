@@ -29,7 +29,7 @@ final class ListPresenter: ListViewOutput, ListModulesInput {
     
     //MARK: - ListViewOutput
     func didLoad() {
-        fetchArts(page: 0)
+        fetchArts()
     }
     
     func selectPicture(indexPath: IndexPath) {
@@ -38,8 +38,11 @@ final class ListPresenter: ListViewOutput, ListModulesInput {
     }
     
     func loadNewPage(currentItem: IndexPath) {
-        if currentItem.row == sections.count - 1 && !loading {
-            fetchArts(page: page)
+        if let lastSection = sections.last,
+           currentItem.section == sections.count - 1,
+           currentItem.row == lastSection.count - 1,
+           !loading {
+            fetchArts()
         }
     }
     
@@ -48,7 +51,7 @@ final class ListPresenter: ListViewOutput, ListModulesInput {
     }
     
     //MARK: - Services
-    func fetchArts(page: Int) {
+    func fetchArts() {
         loading = true
         repository?.getCollection(page: page, completion: { [weak self] result in
             guard let self = self else { return }
@@ -69,13 +72,13 @@ final class ListPresenter: ListViewOutput, ListModulesInput {
                 }
                 
             case let .failure(error):
-                
+    
                 DispatchQueue.main.async {
                     self.view?.showErrorAlert(message: error.localizedDescription, tryAgainHandler: { [weak self] in
                         guard let self = self else { return }
                         
                         if !self.loading {
-                            self.fetchArts(page: page)
+                            self.fetchArts()
                         }
                     })
                 }

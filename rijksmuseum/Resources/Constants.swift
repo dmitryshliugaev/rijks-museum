@@ -46,4 +46,9 @@ struct Constants {
         //// 22
         static let large: CGFloat = 22
     }
+
+    struct AccessibilityIdentifier {
+        static let headerLabel = "headerLabel"
+        static let titleLabel = "titleLabel"
+    }
 }

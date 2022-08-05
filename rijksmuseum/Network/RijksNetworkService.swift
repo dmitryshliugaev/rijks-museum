@@ -9,6 +9,7 @@ import Foundation
 
 protocol RijksNetworkServiceProtocol {
     func fetchArtList(page: Int,
+                      pageSize: Int,
                       completion: @escaping (Result<ArtCollectionResponse, Error>) -> Void)
     func fetchArtDetail(objectNumber: String,
                         completion: @escaping (Result<ArtDetailsResponse, Error>) -> Void)
@@ -60,8 +61,9 @@ final class RijksNetworkService {
 
 extension RijksNetworkService: RijksNetworkServiceProtocol {
     func fetchArtList(page: Int,
+                      pageSize: Int,
                       completion: @escaping (Result<ArtCollectionResponse, Error>) -> Void) {
-        let route = RijksRoute.collection(page: page)
+        let route = RijksRoute.collection(page: page, pageSize: pageSize)
         requestDecodable(route: route, completion: completion)
     }
     

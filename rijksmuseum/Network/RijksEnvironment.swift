@@ -18,7 +18,7 @@ struct RijksEnvironment: NetworkEnvironmentProtocol {
 }
 
 enum RijksRoute: NetworkRouteProtocol {
-    case collection(page: Int)
+    case collection(page: Int, pageSize: Int)
     case detail(objectNumber: String)
     
     var body: Data? {
@@ -27,10 +27,11 @@ enum RijksRoute: NetworkRouteProtocol {
     
     var queryParameters: [String : Any]? {
         switch self {
-        case .collection(let page):
+        case .collection(let page, let pageSize):
             return [
                 "key": Constants.Services.apiKey,
                 "p": page,
+                "ps": pageSize,
                 "type": Constants.Services.artType,
                 "imgonly": true
             ]

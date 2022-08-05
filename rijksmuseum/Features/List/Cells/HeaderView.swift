@@ -17,6 +17,7 @@ final class HeaderView: UICollectionReusableView {
         label.font = UIFont.systemFont(ofSize: Constants.Font.large)
         label.setContentHuggingPriority(.defaultHigh, for: .vertical)
         label.backgroundColor = .clear
+        label.accessibilityIdentifier = Constants.AccessibilityIdentifier.headerLabel
         return label
     }()
     
