@@ -14,11 +14,16 @@ protocol ImageCacheProtocol {
 }
 
 final class ImageCache: ImageCacheProtocol {
-    private let concurrentQueue = DispatchQueue(label: "nl.rijksmuseum.concurrent-queue", attributes: .concurrent)
+    private let isolationQueue = DispatchQueue(label: "nl.rijksmuseum.concurrent-queue", attributes: .concurrent)
     private var cache: [String: UIImage] = [:]
+    private let maxCount = 100
     
     func setImage(_ image: UIImage?, key: String) {
-        concurrentQueue.async(flags: .barrier) {
+        isolationQueue.async(flags: .barrier) {
+            if self.cache.count > self.maxCount,
+               let firstKey = self.cache.first?.key {
+                self.cache.removeValue(forKey: firstKey)
+            }
             self.cache[key] = image
         }
     }
@@ -26,7 +31,7 @@ final class ImageCache: ImageCacheProtocol {
     func getImage(forKey key: String) -> UIImage? {
         var image: UIImage?
         
-        concurrentQueue.sync {
+        isolationQueue.sync {
             image = cache[key]
         }
         
