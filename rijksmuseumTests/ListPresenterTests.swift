@@ -13,14 +13,14 @@ final class ListPresenterTests: XCTestCase {
     var presenter: ListPresenter!
     var view: MockListView!
     var repository: MockRijksRepository!
-    var router: MockRouter!
+    var router: MockListRouter!
     
     let objectNumber = "SK-C-149"
     
     override func setUpWithError() throws {
         presenter = ListPresenter()
         view = MockListView()
-        router = MockRouter()
+        router = MockListRouter()
         
         presenter.view = view
         presenter.router = router
@@ -63,6 +63,26 @@ final class ListPresenterTests: XCTestCase {
         XCTAssertTrue(view.isShowErrorAlertCalled)
     }
     
+    func testDidLoad_FetchDataFailure_TryAgainHandlerCalled() throws {
+        // Given
+        repository = MockRijksRepository(mockState: .error)
+        presenter.repository = repository
+        view.tryAgainHandlerShouldBeCall = true
+        
+        // When
+        presenter.didLoad()
+        
+        repository = MockRijksRepository(mockState: .succes)
+        presenter.repository = repository
+        
+        _ = XCTWaiter.wait(for: [.init()], timeout: 0.3)
+        
+        // Then
+        XCTAssertFalse(presenter.numberOfSections() == 0)
+        XCTAssertTrue(view.isUpdatePicturesListCalled)
+        XCTAssertTrue(view.isShowErrorAlertCalled)
+    }
+    
     func testSelectPicture_DidCall() throws {
         // Given
         repository = MockRijksRepository(mockState: .succes)
@@ -74,7 +94,7 @@ final class ListPresenterTests: XCTestCase {
         presenter.selectPicture(indexPath: IndexPath(row: 0, section: 0))
         
         // Then
-        XCTAssertTrue(router.isDidSelectPicture)
+        XCTAssertTrue(router.isDidSelectPictureCalled)
         XCTAssertEqual(router.objectNumber, objectNumber)
     }
     

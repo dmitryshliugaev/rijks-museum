@@ -11,6 +11,7 @@ import XCTest
 class MockListView: ListViewInput {
     var isUpdatePicturesListCalled = false
     var isShowErrorAlertCalled = false
+    var tryAgainHandlerShouldBeCall = false
     
     func updatePicturesList() {
         isUpdatePicturesListCalled = true
@@ -18,5 +19,9 @@ class MockListView: ListViewInput {
     
     func showErrorAlert(message: String, tryAgainHandler: @escaping () -> Void) {
         isShowErrorAlertCalled = true
+        
+        if tryAgainHandlerShouldBeCall {
+            tryAgainHandler()
+        }
     }
 }

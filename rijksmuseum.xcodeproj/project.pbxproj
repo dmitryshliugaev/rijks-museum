@@ -14,8 +14,11 @@
 		72382304289D59A100B76087 /* MockState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72382303289D59A100B76087 /* MockState.swift */; };
 		72382306289D5AD500B76087 /* MockRijksRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72382305289D5AD500B76087 /* MockRijksRepository.swift */; };
 		72382308289D6A8400B76087 /* ListPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72382307289D6A8400B76087 /* ListPresenterTests.swift */; };
-		7238230A289D6F6100B76087 /* MockRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72382309289D6F6100B76087 /* MockRouter.swift */; };
+		7238230A289D6F6100B76087 /* MockListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72382309289D6F6100B76087 /* MockListRouter.swift */; };
 		7238230C289D6F9800B76087 /* MockListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7238230B289D6F9800B76087 /* MockListView.swift */; };
+		7238230E289E75C200B76087 /* MockDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7238230D289E75C200B76087 /* MockDetailView.swift */; };
+		72382310289E769F00B76087 /* DetailPagePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7238230F289E769F00B76087 /* DetailPagePresenterTests.swift */; };
+		72382312289E775700B76087 /* MockDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72382311289E775700B76087 /* MockDetailRouter.swift */; };
 		72891E43287EAFBF00CAEDCB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72891E42287EAFBF00CAEDCB /* AppDelegate.swift */; };
 		72891E45287EAFBF00CAEDCB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72891E44287EAFBF00CAEDCB /* SceneDelegate.swift */; };
 		72891E4C287EAFC000CAEDCB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72891E4B287EAFC000CAEDCB /* Assets.xcassets */; };
@@ -83,8 +86,11 @@
 		72382303289D59A100B76087 /* MockState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockState.swift; sourceTree = "<group>"; };
 		72382305289D5AD500B76087 /* MockRijksRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRijksRepository.swift; sourceTree = "<group>"; };
 		72382307289D6A8400B76087 /* ListPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPresenterTests.swift; sourceTree = "<group>"; };
-		72382309289D6F6100B76087 /* MockRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRouter.swift; sourceTree = "<group>"; };
+		72382309289D6F6100B76087 /* MockListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockListRouter.swift; sourceTree = "<group>"; };
 		7238230B289D6F9800B76087 /* MockListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockListView.swift; sourceTree = "<group>"; };
+		7238230D289E75C200B76087 /* MockDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDetailView.swift; sourceTree = "<group>"; };
+		7238230F289E769F00B76087 /* DetailPagePresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPagePresenterTests.swift; sourceTree = "<group>"; };
+		72382311289E775700B76087 /* MockDetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDetailRouter.swift; sourceTree = "<group>"; };
 		72891E3F287EAFBF00CAEDCB /* rijksmuseum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = rijksmuseum.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		72891E42287EAFBF00CAEDCB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		72891E44287EAFBF00CAEDCB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -172,8 +178,10 @@
 				72382303289D59A100B76087 /* MockState.swift */,
 				72382301289D595000B76087 /* MockNetworkService.swift */,
 				72382305289D5AD500B76087 /* MockRijksRepository.swift */,
-				72382309289D6F6100B76087 /* MockRouter.swift */,
+				72382309289D6F6100B76087 /* MockListRouter.swift */,
 				7238230B289D6F9800B76087 /* MockListView.swift */,
+				7238230D289E75C200B76087 /* MockDetailView.swift */,
+				72382311289E775700B76087 /* MockDetailRouter.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -222,6 +230,7 @@
 				72382300289D594400B76087 /* Mocks */,
 				723822F8289D3F6C00B76087 /* Data */,
 				72382307289D6A8400B76087 /* ListPresenterTests.swift */,
+				7238230F289E769F00B76087 /* DetailPagePresenterTests.swift */,
 			);
 			path = rijksmuseumTests;
 			sourceTree = "<group>";
@@ -564,9 +573,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7238230A289D6F6100B76087 /* MockRouter.swift in Sources */,
+				7238230A289D6F6100B76087 /* MockListRouter.swift in Sources */,
+				72382310289E769F00B76087 /* DetailPagePresenterTests.swift in Sources */,
 				7238230C289D6F9800B76087 /* MockListView.swift in Sources */,
 				72382302289D595000B76087 /* MockNetworkService.swift in Sources */,
+				7238230E289E75C200B76087 /* MockDetailView.swift in Sources */,
+				72382312289E775700B76087 /* MockDetailRouter.swift in Sources */,
 				72382308289D6A8400B76087 /* ListPresenterTests.swift in Sources */,
 				72382306289D5AD500B76087 /* MockRijksRepository.swift in Sources */,
 				723822FF289D451700B76087 /* JSONFileDecoder.swift in Sources */,
