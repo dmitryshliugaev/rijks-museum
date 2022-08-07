@@ -15,7 +15,6 @@ protocol ListModulesOutput {
 }
 
 final class ListPresenter: ListViewOutput, ListModulesInput {
-    
     // MARK: - Dependencies
     weak var view: ListViewInput?
     var repository: RijksRepositoryProtocol?

@@ -18,7 +18,6 @@ protocol DetailPageViewOutput {
 
 
 final class DetailPageView: UIViewController, DetailPageViewInput {
-    
     // MARK: - Dependencies
     var output: DetailPageViewOutput?
     
@@ -76,6 +75,8 @@ final class DetailPageView: UIViewController, DetailPageViewInput {
         
         navigationItem.largeTitleDisplayMode = .never
         
+        addTapGesture(imageView: pictureView)
+        
         output?.didLoad()
     }
     
@@ -117,6 +118,33 @@ final class DetailPageView: UIViewController, DetailPageViewInput {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.setContentHuggingPriority(.defaultHigh, for: .vertical)
         label.textAlignment = .natural
+    }
+    
+    private func addTapGesture(imageView: UIImageView) {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap))
+        imageView.isUserInteractionEnabled = true
+        imageView.addGestureRecognizer(tap)
+    }
+    
+    // MARK: - Actions
+    @objc func handleTap(_ sender: UITapGestureRecognizer? = nil) {
+        if let imageView = sender?.view as? UIImageView,
+            let image = imageView.image {
+            let newImageView = ArtImageView(image: image)
+            newImageView.frame = UIScreen.main.bounds
+            newImageView.backgroundColor = .black
+            newImageView.contentMode = .scaleAspectFill
+            newImageView.isUserInteractionEnabled = true
+            let tap = UITapGestureRecognizer(target: self, action: #selector(dismissFullscreenImage))
+            newImageView.addGestureRecognizer(tap)
+            view.addSubview(newImageView)
+            navigationController?.isNavigationBarHidden = true
+        }
+    }
+    
+    @objc func dismissFullscreenImage(sender: UITapGestureRecognizer) {
+        navigationController?.isNavigationBarHidden = false
+        sender.view?.removeFromSuperview()
     }
     
     //MARK: - Error handling

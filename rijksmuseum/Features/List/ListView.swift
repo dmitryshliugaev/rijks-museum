@@ -21,7 +21,6 @@ protocol ListViewOutput {
 }
 
 final class ListView: UIViewController, ListViewInput {
-    
     //MARK: - Dependencies
     var output: ListViewOutput?
     var itemSource: ListViewItemsSourcing?
