@@ -19,6 +19,7 @@
 		7238230E289E75C200B76087 /* MockDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7238230D289E75C200B76087 /* MockDetailView.swift */; };
 		72382310289E769F00B76087 /* DetailPagePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7238230F289E769F00B76087 /* DetailPagePresenterTests.swift */; };
 		72382312289E775700B76087 /* MockDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72382311289E775700B76087 /* MockDetailRouter.swift */; };
+		72382314289FBFDC00B76087 /* RijksRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72382313289FBFDC00B76087 /* RijksRepositoryTests.swift */; };
 		72891E43287EAFBF00CAEDCB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72891E42287EAFBF00CAEDCB /* AppDelegate.swift */; };
 		72891E45287EAFBF00CAEDCB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72891E44287EAFBF00CAEDCB /* SceneDelegate.swift */; };
 		72891E4C287EAFC000CAEDCB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72891E4B287EAFC000CAEDCB /* Assets.xcassets */; };
@@ -91,6 +92,7 @@
 		7238230D289E75C200B76087 /* MockDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDetailView.swift; sourceTree = "<group>"; };
 		7238230F289E769F00B76087 /* DetailPagePresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPagePresenterTests.swift; sourceTree = "<group>"; };
 		72382311289E775700B76087 /* MockDetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDetailRouter.swift; sourceTree = "<group>"; };
+		72382313289FBFDC00B76087 /* RijksRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RijksRepositoryTests.swift; sourceTree = "<group>"; };
 		72891E3F287EAFBF00CAEDCB /* rijksmuseum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = rijksmuseum.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		72891E42287EAFBF00CAEDCB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		72891E44287EAFBF00CAEDCB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -231,6 +233,7 @@
 				723822F8289D3F6C00B76087 /* Data */,
 				72382307289D6A8400B76087 /* ListPresenterTests.swift */,
 				7238230F289E769F00B76087 /* DetailPagePresenterTests.swift */,
+				72382313289FBFDC00B76087 /* RijksRepositoryTests.swift */,
 			);
 			path = rijksmuseumTests;
 			sourceTree = "<group>";
@@ -578,6 +581,7 @@
 				7238230C289D6F9800B76087 /* MockListView.swift in Sources */,
 				72382302289D595000B76087 /* MockNetworkService.swift in Sources */,
 				7238230E289E75C200B76087 /* MockDetailView.swift in Sources */,
+				72382314289FBFDC00B76087 /* RijksRepositoryTests.swift in Sources */,
 				72382312289E775700B76087 /* MockDetailRouter.swift in Sources */,
 				72382308289D6A8400B76087 /* ListPresenterTests.swift in Sources */,
 				72382306289D5AD500B76087 /* MockRijksRepository.swift in Sources */,
