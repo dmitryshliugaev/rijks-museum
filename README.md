@@ -66,8 +66,8 @@ First checkout the project and start the **rijksmuseum.xcodeproj** file, there a
 │   └── RijksNetworkService.swift
 ├── Repository
 │   └── RijksRepository.swift
-├── Resources
-│   ├── Assets.xcassets
-│   ├── Constants.swift
-│   ├── Localizable.strings
+└── Resources
+    ├── Assets.xcassets
+    ├── Constants.swift
+    └── Localizable.strings
 ```
