@@ -20,6 +20,7 @@
 		72382310289E769F00B76087 /* DetailPagePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7238230F289E769F00B76087 /* DetailPagePresenterTests.swift */; };
 		72382312289E775700B76087 /* MockDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72382311289E775700B76087 /* MockDetailRouter.swift */; };
 		72382314289FBFDC00B76087 /* RijksRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72382313289FBFDC00B76087 /* RijksRepositoryTests.swift */; };
+		72382317289FE86500B76087 /* ArtImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72382316289FE86500B76087 /* ArtImageView.swift */; };
 		72891E43287EAFBF00CAEDCB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72891E42287EAFBF00CAEDCB /* AppDelegate.swift */; };
 		72891E45287EAFBF00CAEDCB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72891E44287EAFBF00CAEDCB /* SceneDelegate.swift */; };
 		72891E4C287EAFC000CAEDCB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72891E4B287EAFC000CAEDCB /* Assets.xcassets */; };
@@ -93,6 +94,7 @@
 		7238230F289E769F00B76087 /* DetailPagePresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPagePresenterTests.swift; sourceTree = "<group>"; };
 		72382311289E775700B76087 /* MockDetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDetailRouter.swift; sourceTree = "<group>"; };
 		72382313289FBFDC00B76087 /* RijksRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RijksRepositoryTests.swift; sourceTree = "<group>"; };
+		72382316289FE86500B76087 /* ArtImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtImageView.swift; sourceTree = "<group>"; };
 		72891E3F287EAFBF00CAEDCB /* rijksmuseum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = rijksmuseum.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		72891E42287EAFBF00CAEDCB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		72891E44287EAFBF00CAEDCB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -188,6 +190,14 @@
 			path = Mocks;
 			sourceTree = "<group>";
 		};
+		72382315289FE85700B76087 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				72382316289FE86500B76087 /* ArtImageView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		72891E36287EAFBF00CAEDCB = {
 			isa = PBXGroup;
 			children = (
@@ -214,10 +224,11 @@
 				72891E42287EAFBF00CAEDCB /* AppDelegate.swift */,
 				72891E44287EAFBF00CAEDCB /* SceneDelegate.swift */,
 				72891E50287EAFC000CAEDCB /* Info.plist */,
-				72ECFA24289A9D3F006EC8CC /* Dependency */,
-				72ECFA18289A85F0006EC8CC /* Models */,
 				72891E7C287EB87300CAEDCB /* Features */,
 				72891E74287EB5A800CAEDCB /* Coordinator */,
+				72ECFA24289A9D3F006EC8CC /* Dependency */,
+				72ECFA18289A85F0006EC8CC /* Models */,
+				72382315289FE85700B76087 /* Views */,
 				72ECFA15289A7103006EC8CC /* Repository */,
 				72891E93287EE41A00CAEDCB /* Network */,
 				72891E9D287F1DB900CAEDCB /* Extensions */,
@@ -539,6 +550,7 @@
 				72891E8E287EBC4E00CAEDCB /* DetailPagePresenter.swift in Sources */,
 				72891E73287EB46B00CAEDCB /* CoordinatorProtocol.swift in Sources */,
 				72891E43287EAFBF00CAEDCB /* AppDelegate.swift in Sources */,
+				72382317289FE86500B76087 /* ArtImageView.swift in Sources */,
 				72891E80287EBA0900CAEDCB /* ListView.swift in Sources */,
 				72A01E0C287FFF570036F3B4 /* ListViewItemsSourcing.swift in Sources */,
 				72ECFA1C289A8758006EC8CC /* ArtCollectionObject.swift in Sources */,
