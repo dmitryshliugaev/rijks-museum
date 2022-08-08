@@ -10,7 +10,7 @@ First checkout the project and start the **rijksmuseum.xcodeproj** file, there a
 * To see the art details tap on the cell and Art Details Screen will appear. Tap again on the image and you will be able to explore it by zooming and panning 
 
 # Architecture:
-* MVP + Coordinator, because MVP 
+* MVP + Coordinator
 * Networking module is independent and can be implemented anywhere. It is based on Apple's “URLSession” and generics so no third party libs have been used.
 * Repository separate presenter layer and services layer. It also converts Response models to Domain models.
 * Test Coverage 83.7%
