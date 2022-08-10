@@ -10,6 +10,8 @@ import Foundation
 class Dependency {
     static let sharedInstance = Dependency()
     
+    private init() {}
+    
     lazy var networkEnvironment: NetworkEnvironmentProtocol = {
         return RijksEnvironment()
     }()
